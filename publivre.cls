@@ -1,6 +1,5 @@
 % Reste à faire :
 % PRINT : Générer le code-barre automatiquement
-% HTML : Adapter la commande sout
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{publivre}[2017/05/01]
 
@@ -440,11 +439,15 @@
     \aclORIG{som}{#2}{#3}}{}}
 
 % Style barré
-\newlength{\templong}
+\newlength{\temp@long}%
 \newcommand\sout[1]{%
-  \settowidth{\templong}{#1}%
-  \makebox[0cm][l]{#1}%
-  \rule[0.5ex]{\templong}{0.2pt}%
+  \if@html%
+    \HCode{<s>}#1\HCode{</s>}%
+  \else%
+    \settowidth{\temp@long}{#1}%
+    \makebox[0cm][l]{#1}%
+    \rule[0.5ex]{\temp@long}{0.2pt}%
+  \fi%
 }
 
 % Langue étrangère
