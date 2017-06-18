@@ -164,7 +164,9 @@
 \newcommand\Isbn[2]{%
   \def\@isbnnum{#1}%
   \def\@isbnpapier{#2}%
-  \if@html\@writemeta{<dc:identifier opf:scheme="ISBN">#1</dc:identifier>}\fi%
+  \if@html%
+    \ifthenelse{\equal{\@isbnnum}{\null}}{}{\@writemeta{<dc:identifier opf:scheme="ISBN">#1</dc:identifier>}}%
+  \fi%
 }
 \newcommand\Impression[1]{%
   \def\@impression{#1}%
@@ -389,7 +391,7 @@
     \begin{center}%
       \@licence\par%
       \null\par%
-      \ifthenelse{\equal{\@isbnnum}{\null}}{}{N° ISBN : \@isbnpapier}%
+      \ifthenelse{\equal{\@isbnpapier}{\null}}{}{N° ISBN : \@isbnpapier}%
     \end{center}%
     \newpage%
   \fi\fi}%
