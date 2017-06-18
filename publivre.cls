@@ -21,7 +21,7 @@
 \newif\if@imprimefrance % Indique si imprimé en France
 \newif\if@petitlivre % Petit livre (faible nombre de pages)
 \newif\if@chapnum % Numérotation des chapitres
-\newif\if@chapnumsimple % Numérotation simple (sans « Chapitre »)
+\newif\if@chapindic % Numérotation avec indicateur (« Chapitre »)
 
 \ifdefined\HCode % Moteur HTML
   \@htmltrue
@@ -29,9 +29,9 @@
   \@htmlfalse
 \fi
 \@imprimefrancetrue % Par défaut, on imprime en France
-\@petitlivrefalse % Par défaut, on met une petite marge de reliure
+\@petitlivrefalse % Par défaut, on considère que le livre est gros
 \@chapnumtrue % Par défaut, les chapitre sont numérotés
-\@chapnumsimplefalse % Par défaut, les chapitre ont une indication avant le numéro
+\@chapindictrue % Par défaut, les chapitre ont une indication avant le numéro
 
 % Mode (non) brouillon, à redéfinir en amont pour modifier
 \providecommand\Brouillon{%
@@ -41,8 +41,8 @@
 
 % Options
 \DeclareOption{petitlivre}{\@petitlivretrue}
-\DeclareOption{sanschapnum}{\@chapnumfalse}
-\DeclareOption{chapnumsimple}{\@chapnumsimpletrue}
+\DeclareOption{sanschapnum}{\@chapnumfalse\@chapindicfalse}
+\DeclareOption{chapnumsimple}{\@chapnumtrue\@chapindicfalse}
 \DeclareOption{@10pt}{\PassOptionsToClass{10pt}{book}}
 \DeclareOption{@12pt}{\PassOptionsToClass{12pt}{book}}
 \DeclareOption{@a4paper}{\PassOptionsToClass{a4paper}{book}}
@@ -295,7 +295,8 @@
 
 % Mettre des valeurs par défaut
 \AtBeginDocument{%
-  \if@chapnum\if@chapnumsimple\renewcommand\chaptername{}\else\fi\else\renewcommand\chaptername{}\renewcommand\thechapter{}\fi%
+  \if@chapnum\else\renewcommand\thechapter{}\fi%
+  \if@chapindic\else\renewcommand\chaptername{}\fi%
   \ifthenelse{\equal{\@auteur}{\null}}{\def\@auteur{?Auteur?}}{}%
 }
 
