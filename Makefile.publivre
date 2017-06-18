@@ -16,8 +16,10 @@ ebook: $(EBOOK)
 
 %.draft.pdf: %.tex
 	TEXINPUTS=".:$(LATEXFILES):" pdflatex -jobname=$(basename $@) \\newcommand\\Brouillon{\\brouillontrue} \\input{$<}
+	TEXINPUTS=".:$(LATEXFILES):" pdflatex -jobname=$(basename $@) \\newcommand\\Brouillon{\\brouillontrue} \\input{$<}
 
 %.pdf %.data: %.tex
+	TEXINPUTS=".:$(LATEXFILES):" pdflatex $<
 	TEXINPUTS=".:$(LATEXFILES):" pdflatex $<
 
 %.cover.pdf: %.sla %.data
