@@ -44,6 +44,7 @@ Différentes commandes, utilisables dans le préambule du document, permettent d
 * \Editeur{_Éditeur_} vous permet d'indiquer l'éditeur du  livre. Si vous n'utilisez pas cette commande, la valeur sera « ?Auteur-Éditeur? ».
 * \Licence{_Licence_} peut être utilisée pour fixer la licence du livre. C'est une commande facultative mais recommandée. Si elle n'est pas spécifiée, aucune licence ne sera indiquée dans le livre numérique, tandis que la mention « © » suivie de la date sera insérée dans la version papier du livre.
 * \Isbn{_Version numérique_}{_Version papier_} est une commande pour indiquer le numéro ISBN du livre. En principe, un même livre sous deux formats différents devrait avoir deux numéros d'ISBN différents. Le premier numéro est utilisé pour la version numérique du livre, tandis que le deuxième est utilisé dans la version papier. La version brouillon n'utilise pas de numéro ISBN. Chacun des numéros est facultatif, la commande elle-même n'est pas nécessaire.
+* \Impression{_Détails_} peut être utilisée pour ajouter des détails sur l'imprimeur (par exemple, nom de l'imprimeur, date de l'impression). La commande est facultative.
 * \DepotLegal{_Date_} vous permet de spécifier la date du dépôt légal du livre. En principe, on ne spécifie que le mois et l'année (par exemple _juin 2017_). La commande est facultative.
 * \PresseEtrangere peut être utilisé pour ne pas afficher « imprimé en France » dans la version papier du livre. C'est une commande facultative.
 * \DuMemeAuteur{_Autres publications_} est une commande facultative qui permet d'afficher les autres livres écrits par le même auteur. Le paramètre fourni peut contenir plusieurs paragraphes ainsi que des commandes LaTeX.
@@ -61,6 +62,27 @@ Deux environnements supplémentaires peuvent également être utilisés :
 * \begin{manuscrit} peut être utilisée au début d'une zone écrite avec une police de caractères imitant l'écriture manuscrite.
 
 ### Couverture
+
+La couverture doit être créée avec Scribus. Il est conseillé de faire déborder vos images, couleurs, etc. de quelques millimètres et définir un « fond perdu ». Il est également possible d'indiquer des traits de coupe. La taille du fond perdu et la longueur des traits de coupe peuvent se régler dans le menu _Fichier_/_Réglage du document_, onglet _Export PDF_. Demandez à votre imprimeur les paramètres dont il a besoin.
+
+Votre document doit obligatoirement contenir des champs ayant les noms suivants. Vous pouvez toutefois jouer sur la position, la taille et la couleur de ces champs afin qu'ils ne soient pas visibles :
+* _Auteur_ pour le nom de l'auteur (ou des auteurs) sur la première couverture ;
+* _AuteurDos_ qui contiendra également le nom de l'auteur, est prévu pour le dos du livre ;
+* _AuteurTranche_, toujours pour le nom de l'auteur, est prévu pour la tranche du livre ;
+* _Titre_ avec le titre du livre sur l'avant du livre ;
+* _TitreDos_, également pour le titre, mais sur le dos du livre ;
+* _TitreTranche_, encore pour le titre, prévu pour la tranche du livre ;
+* _Contributeur_ contiendra le nom des éventuels contributeurs (auteurs secondaires) ;
+* _Éditeur_, pour la face avant du livre, contiendra la nom de l'éditeur ;
+* _ÉditeurDos_ est également pour le nom de l'éditeur, mais prévu pour le dos du livre ;
+* _Résumé_, prévu pour le résumé de quatrième de couverture ;
+* _ISBN_ qui contient le code à barre du livre lié à son numéro ISBN.
+
+À chaque fois que la couverture est générée, le contenu de ces champs est modifié dans le fichier .sla en fonction des données fournies dans le fichier .tex.
+
+### Génération
+
+(utilisation du Makefile)
 
 (à compléter)
 
