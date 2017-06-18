@@ -210,8 +210,8 @@
 \setlength{\@margehautsep}{8mm}
 \setlength{\@margebas}{15mm}
 \setlength{\@margebassep}{8mm}
-\setlength{\@margereliure}{0mm}
-\setlength{\@margecote}{30mm}
+\setlength{\@margereliure}{5mm}
+\setlength{\@margecote}{20mm}
 \else
 \setlength{\@margehaut}{18mm}
 \setlength{\@margehautsep}{10mm}
@@ -260,6 +260,10 @@
 \fancypagestyle{plain}{%
   \fancyhf{}%
   \fancyfoot[C]{\thepage}%
+  \ifbrouillon%
+    \fancyhead[L]{\textit{\@titre}}%
+    \fancyhead[R]{Version du \today}%
+  \fi%
   \renewcommand\headrulewidth{0pt}%
   \renewcommand\footrulewidth{0pt}%
 }
@@ -289,7 +293,7 @@
 
 % Mettre des valeurs par défaut
 \AtBeginDocument{%
-  \if@chapnum\if@chapnumsimple\renewcommand\chaptername{\null}\else\fi\else\renewcommand\thechapter{\null}\fi%
+  \if@chapnum\if@chapnumsimple\renewcommand\chaptername{}\else\fi\else\renewcommand\chaptername{}\renewcommand\thechapter{}\fi%
   \ifthenelse{\equal{\@auteur}{\null}}{\def\@auteur{?Auteur?}}{}%
 }
 
@@ -310,7 +314,7 @@
 \if@html
   \let\oldclrearpage\clearpage
   \def\mypagebreak{\Configure{newpage}{\ifvmode\IgnorePar\fi\EndP\HCode{<div class="newpage"></div>}}}
-  \renewcommand\cleardoublepage{\clearpage} % Inutile de sauter 2 pages sur une liseuse
+  \renewcommand\cleardoublepage{\clearpage} % Inutile de sauter 2 pages sur un livre électronique
 
   \AtBeginDocument{%
     \mypagebreak % Redéfinir newpage
@@ -345,8 +349,11 @@
       {\Large\textsc{Confidentiel — Merci de ne pas diffuser}\par\par}%
       {\Large\@auteur\par}%
       {\Huge\@titre\par}\vspace{\baselineskip}\textsc{\@categorie}\par%
+      (mode révision)\par%
     \end{center}%
-    Résumé :\par\@couvresume\par%
+    {\small\emph{N'hésitez pas à annoter le texte directement, si possible au stylo rouge. %
+    Les marques dans la marge pour repérer plus facilement les annotations sont bienvenues.}}\par%
+    Résumé :\par\@couvresume\par\par%
     \vspace*{\stretch{1}}{\small\@dumemeauteur\par\hrulefill\@auteurssecondaires}%
     \begin{center}%
       {\Large\par\par\textsc{Confidentiel — Merci de ne pas diffuser}}%
