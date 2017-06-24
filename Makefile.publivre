@@ -34,7 +34,7 @@ ebook: $(EBOOK)
 	echo '(extract-cover "$<" "$@" $(COVERRES) $(COVERCUT)) (gimp-quit 0)' | cat $(LATEXFILES)/extractCover.scm - | gimp -i -b -
 
 %.html %.css %.opf: %.tex
-	TEXINPUTS=".:$(LATEXFILES):" mk4ht htlatex $< "xhtml,charset=utf-8" " -cunihtf -utf8"
+	TEXINPUTS=".:$(LATEXFILES):" mk4ht htlatex $< "xhtml,fn-in,charset=utf-8" " -cunihtf -utf8"
 	rm -f *.4ct *.4tc *.dvi *.idv *.lg *.tmp *.xref
 
 %.epub: %.html %.css %.opf %.cover.png
