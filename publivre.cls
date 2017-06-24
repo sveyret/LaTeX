@@ -438,19 +438,28 @@
 }
 
 % Construction du sommaire
-\newcommand\sommaire{%
-  \setlength{\parskip}{0pt plus 1.0pt}%
-  \chapter*{Sommaire}\par%
-  \@starttoc{som}%
-  \setlength{\parskip}{0pt plus 1.0pt}%
-}
+\if@html
+  \newcommand\sommaire{%
+    \let\contentsnameORIG\contentsname
+    \renewcommand{\contentsname}{Sommaire}%
+    \tableofcontents[part,chapter]%
+    \let\contentsname\contentsnameORIG
+  }
+\else
+  \newcommand\sommaire{%
+    \setlength{\parskip}{0pt plus 1.0pt}%
+    \chapter*{Sommaire}\par%
+    \@starttoc{som}%
+    \setlength{\parskip}{0pt plus 1.0pt}%
+  }
 
-\let\aclORIG\addcontentsline
-\renewcommand{\addcontentsline}[3]{%
-  \aclORIG{#1}{#2}{#3}%
-  \ifthenelse{% Inserer chapitres et parties 
-    \equal{#2}{chapter} \or \equal{#2}{part}}{%
-    \aclORIG{som}{#2}{#3}}{}}
+  \let\aclORIG\addcontentsline
+  \renewcommand{\addcontentsline}[3]{%
+    \aclORIG{#1}{#2}{#3}%
+    \ifthenelse{% Inserer chapitres et parties
+      \equal{#2}{chapter} \or \equal{#2}{part}}{%
+      \aclORIG{som}{#2}{#3}}{}}
+\fi
 
 % Style barré
 \newlength{\temp@long}%
