@@ -24,7 +24,7 @@ Avec cette classe, vous pouvez, à partir d'un fichier .tex et un fichier Scribu
 * un fichier de brouillon, contenant l'ensemble du texte, permettant une impression pour d'éventuelles relectures (*.draft.pdf) ;
 * un fichier contenant une version numérique du livre (*.epub).
 
-En plus d'une installation complète de LaTeX (contenant pdflatex, mk4ht et htlatex), l'utilisation de cette classe nécessite également :
+En plus d'une installation complète de LaTeX (contenant pdflatex, mk4ht, htlatex et latexmk), l'utilisation de cette classe nécessite également :
 * Scribus ;
 * gimp ;
 * pdftoppm ;

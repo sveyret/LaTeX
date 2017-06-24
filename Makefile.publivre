@@ -15,12 +15,14 @@ print: $(PRINT)
 ebook: $(EBOOK)
 
 %.draft.pdf: %.tex
-	TEXINPUTS=".:$(LATEXFILES):" pdflatex -jobname=$(basename $@) \\newcommand\\Brouillon{\\brouillontrue} \\input{$<}
-	TEXINPUTS=".:$(LATEXFILES):" pdflatex -jobname=$(basename $@) \\newcommand\\Brouillon{\\brouillontrue} \\input{$<}
+	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -jobname=$(basename $@) -pdflatex="pdflatex -jobname=$(basename $@) '\\newcommand\\Brouillon{\\brouillontrue} \\input{%S}'" $<
+	latexmk -jobname=$(basename $@) -c
+	rm -f $(basename $@).som
 
 %.pdf %.data: %.tex
-	TEXINPUTS=".:$(LATEXFILES):" pdflatex $<
-	TEXINPUTS=".:$(LATEXFILES):" pdflatex $<
+	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -pdflatex=pdflatex $<
+	latexmk -c
+	rm -f $(basename $@).som
 
 %.cover.pdf: %.sla %.data
 	scribus -g -ns $< -py $(LATEXFILES)/autoPDF.py $@ $*.sla $*.data
@@ -33,17 +35,18 @@ ebook: $(EBOOK)
 
 %.html %.css %.opf: %.tex
 	TEXINPUTS=".:$(LATEXFILES):" mk4ht htlatex $< "xhtml,charset=utf-8" " -cunihtf -utf8"
+	rm -f *.4ct *.4tc *.dvi *.idv *.lg *.tmp *.xref
 
 %.epub: %.html %.css %.opf %.cover.png
 	ebook-convert $< $@ --embed-all-fonts --cover $*.cover.png --from-opf $*.opf
 
 clean:
-	rm -f *.out *.aux *.log *.dvi *.idv *.4ct *.4tc *.lg *.tmp *.xref *~
-
-cleanmore: clean
+	rm -f *~
 	rm -f *.data *.html *.css *.opf
 
-mrproper: cleanmore
+mrproper: clean
 	rm -f $(DRAFT) $(PRINT) $(EBOOK)
+
+.INTERMEDIATE : *.data *.html *.css *.opf
 
 .PHONY : all draft print ebook clean cleanmore mrproper
