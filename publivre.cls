@@ -355,7 +355,7 @@
       (mode révision)\par%
     \end{center}%
     {\small\emph{N'hésitez pas à annoter le texte directement, si possible au stylo rouge. %
-    Les marques dans la marge pour repérer plus facilement les annotations sont bienvenues.}}\par%
+    Des marques dans la marge pour repérer plus facilement les annotations seront appréciées.}}\par%
     Résumé :\par\@couvresume\par\par%
     \vspace*{\stretch{1}}{\small\@dumemeauteur\par\hrulefill\@auteurssecondaires}%
     \begin{center}%
