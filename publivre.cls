@@ -488,9 +488,17 @@
 
 % Environnement manuscrit
 \newenvironment{manuscrit}{%
-  \fontfamily{pzc}\selectfont%
+  \if@html%
+    \HCode{<i>}%
+  \else%
+    \fontfamily{pzc}\selectfont%
+  \fi%
 }{%
-  \null%
+  \if@html%
+    \HCode{</i>}%
+  \else%
+    \null%
+  \fi%
 }
 
 % Fin du fichier
