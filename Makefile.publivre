@@ -35,7 +35,7 @@ ebook: $(EBOOK)
 
 %.html %.css %.opf: %.tex
 	TEXINPUTS=".:$(LATEXFILES):" mk4ht htlatex $< "xhtml,fn-in,charset=utf-8" " -cunihtf -utf8"
-	rm -f *.4ct *.4tc *.dvi *.idv *.lg *.tmp *.xref
+	rm -f $*.4ct $*.4tc $*.aux $*.dvi $*.idv $*.lg $*.log $*.tmp $*.xref
 
 %.epub: %.html %.css %.opf %.cover.png
 	ebook-convert $< $@ --embed-all-fonts --cover $*.cover.png --from-opf $*.opf
