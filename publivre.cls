@@ -332,6 +332,10 @@
     \Tag{TITLE+}{\@titre}%
     \Configure{@BODY}{\def\clearpage{\bgroup\mypagebreak\oldclrearpage\egroup}\after@begindocument}%
     \Configure{@/BODY}{\global\let\clearpage\oldclrearpage\Configure{newpage}{}}%
+    \Configure{graphics*}{png}{%
+      \Picture[pict]{\csname Gin@base\endcsname .png%
+      \space width="\expandafter\the\csname Gin@req@width\endcsname"%
+    }}%
     \@writemeta{<dc:language>fr</dc:language>}%
     \@writemeta{</metadata>}%
     \@writemeta{<manifest/>}%
