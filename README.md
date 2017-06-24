@@ -69,7 +69,7 @@ Deux environnements supplémentaires peuvent également être utilisés :
 * \begin{dedicace} permet de démarrer la dédicace du livre. Cette dédicace s'affiche sur une page vide, les paragraphes alignés à droite.
 * \begin{manuscrit} peut être utilisée au début d'une zone écrite avec une police de caractères imitant l'écriture manuscrite.
 
-### Couverture
+## Création de la couverture
 
 La couverture doit être créée avec Scribus. Il est conseillé de faire déborder vos images, couleurs, etc. de quelques millimètres et définir un « fond perdu ». Il est également possible d'indiquer des traits de coupe. La taille du fond perdu et la longueur des traits de coupe peuvent se régler dans le menu _Fichier_/_Réglage du document_, onglet _Export PDF_. Demandez à votre imprimeur les paramètres dont il a besoin.
 
@@ -88,11 +88,16 @@ Votre document doit obligatoirement contenir des champs ayant les noms suivants.
 
 À chaque fois que la couverture est générée, le contenu de ces champs est modifié dans le fichier .sla en fonction des données fournies dans le fichier .tex.
 
-### Génération
+## Génération
 
 (utilisation du Makefile)
 
 (à compléter)
+
+## À faire
+
+* Compléter ce mode d'emploi ;
+* Générer automatiquement le code barre pour la couverture.
 
 # Création d'un scénario (classe filmscenario)
 
