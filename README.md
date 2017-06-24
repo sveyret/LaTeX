@@ -6,6 +6,14 @@ These classes are intended to be used to create work of French literature. There
 
 Ces classes ont pour but de créer des œuvres littéraires en français. Aussi, tous les documents ici sont en français. N'hésitez pas à me demander si vous avez besoin d'une traduction.
 
+# Licence
+
+Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la _GNU General Public License_ telle que publiée par la _Free Software Foundation_ ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
+
+Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ; sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER. Consultez la _GNU General Public License_ pour plus de détails.
+
+Vous devez avoir reçu une copie de la _GNU General Public License_ en même temps que ce programme ; si ce n'est pas le cas, consultez <(http://www.gnu.org/licenses)>.
+
 # Création d'un livre (classe publivre)
 
 Cette classe permet de rédiger un livre à publier. Cette classe s'utilise avec le modèle de Makefile (Makefile.publivre) fourni.
