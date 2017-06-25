@@ -514,6 +514,11 @@
   \fi%
 }
 
+% Environnement figure
+\if@html%
+  \renewenvironment{figure}[1][]{}{}
+\fi%
+
 % Fin du fichier
 \makeatother
 \endinput
