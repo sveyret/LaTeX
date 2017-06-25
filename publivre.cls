@@ -499,6 +499,13 @@
   \upshape\end{flushright}\vspace*{\fill}\cleardoublepage%
 }
 
+% Environnement narrateur
+\newenvironment{narrateur}{%
+  \slshape%
+}{%
+  \upshape%
+}
+
 % Environnement manuscrit
 \newenvironment{manuscrit}{%
   \if@html%
