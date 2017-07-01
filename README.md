@@ -92,8 +92,9 @@ Votre document doit obligatoirement contenir des champs ayant les noms suivants.
 ## Génération
 
 Un fichier _Makefile.publivre_ est fourni à titre de modèle pour votre projet de livre. Ce fichier doit être copié dans le répertoire contenant les sources du projet, et renommé en _Makefile_ (sans extension). Ensuite, le début du fichier doit être modifié afin de positionner les variables :
-* _BASENAME_ doit contenir la « racine » du nom du projet ; c'est le nom, hors extension, de tous les fichiers concernant le projet (fichier .tex et couverture, ainsi que fichiers générés).
-* les autres noms de fichiers sont déduits automatiquement de cette première variable et ne devraient pas avoir besoin d'être modifiés ;
+* _BASENAME_ doit contenir la « racine » du nom du projet ; c'est le nom, hors extension, de tous les fichiers concernant le projet (fichier .tex et couverture, ainsi que fichiers générés) ;
+* _LATEXFILES_ contient le chemin vers le répertoire contenant les fichiers de ce projet ;
+* les autres noms de fichiers sont déduits automatiquement de la première variable et ne devraient pas avoir besoin d'être modifiés ;
 * _COVERRES_ doit contenir, en points par pouce, la résolution de l'image qui sera extraite de la couverture papier pour être insérée dans le livre numérique ;
 * _COVERCUT_ contient la taille, en millimètres, de la partie de couverture qui doit être coupée (fond perdu, traits de coupe, etc.)
 
