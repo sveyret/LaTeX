@@ -91,13 +91,24 @@ Votre document doit obligatoirement contenir des champs ayant les noms suivants.
 
 ## Génération
 
-(utilisation du Makefile)
+Un fichier _Makefile.publivre_ est fourni à titre de modèle pour votre projet de livre. Ce fichier doit être copié dans le répertoire contenant les sources du projet, et renommé en _Makefile_ (sans extension). Ensuite, le début du fichier doit être modifié afin de positionner les variables :
+* _BASENAME_ doit contenir la « racine » du nom du projet ; c'est le nom, hors extension, de tous les fichiers concernant le projet (fichier .tex et couverture, ainsi que fichiers générés).
+* les autres noms de fichiers sont déduits automatiquement de cette première variable et ne devraient pas avoir besoin d'être modifiés ;
+* _COVERRES_ doit contenir, en points par pouce, la résolution de l'image qui sera extraite de la couverture papier pour être insérée dans le livre numérique ;
+* _COVERCUT_ contient la taille, en millimètres, de la partie de couverture qui doit être coupée (fond perdu, traits de coupe, etc.)
 
-(à compléter)
+Lorsque le fichier _Makefile_ est prêt, vous pouvez utiliser, si l'outil _Make_ est installé sur votre poste (c'est le cas sur la plupart des distribution Linux) :
+* _make_ pour générer la couverture et l'intérieur du livre papier, la version brouillon et la version numérique du livre ;
+* _make draft_ pour générer la version brouillon (mode révision) du livre ;
+* _make print_ pour générer la couverture et l'intérieur du livre papier ;
+* _make ebook_ pour générer le livre numérique ;
+* _make clean_ pour supprimer les fichiers intermédiaires ;
+* _make mrproper_ pour faire le ménage et supprimer tous les fichiers générés.
+
+Bien sûr, vous pouvez également appeler _make_ pour générer n'importe quel fichier, définitif ou intermédiaire, selon votre désir…
 
 ## À faire
 
-* Compléter ce mode d'emploi ;
 * Générer automatiquement le code barre pour la couverture.
 
 # Création d'un scénario (classe filmscenario)
