@@ -49,4 +49,4 @@ mrproper: clean
 
 .INTERMEDIATE : *.data *.html *.css *.opf
 
-.PHONY : all draft print ebook clean cleanmore mrproper
+.PHONY : all draft print ebook clean mrproper
