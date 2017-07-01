@@ -102,4 +102,8 @@ Votre document doit obligatoirement contenir des champs ayant les noms suivants.
 
 # Création d'un scénario (classe filmscenario)
 
-(à compléter)
+## À faire
+
+* Compléter ce mode d'emploi ;
+* Permettre la coupure automatique de dialogue multi-page.
+
