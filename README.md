@@ -65,9 +65,10 @@ Cette classe hérite de la classe standard « book ». Vous pouvez donc utilis
 * \etranger{_texte_} pour du texte en langue étrangère ;
 * \separateurpar qui ajoute un [astérisme](https://fr.wikipedia.org/wiki/Ast%C3%A9risme_(typographie)) afin de séparer deux paragraphes logiques.
 
-Deux environnements supplémentaires peuvent également être utilisés :
-* \begin{dedicace} permet de démarrer la dédicace du livre. Cette dédicace s'affiche sur une page vide, les paragraphes alignés à droite.
-* \begin{manuscrit} peut être utilisée au début d'une zone écrite avec une police de caractères imitant l'écriture manuscrite.
+Des environnements supplémentaires peuvent également être utilisés :
+* \begin{dedicace}…\end{dedicace} permet de délimiter la dédicace du livre ; cette dédicace s'affiche sur une page vide, les paragraphes alignés à droite ;
+* \begin{narrateur}…\end{narrateur} permet d'encadrer une zone dans lequel le narrateur n'est pas l'un des personnage du livre ; ces zones ont une mise en forme différente ;
+* \begin{manuscrit}…\end{manuscrit} peut être utilisée pour identifier une zone écrite avec une police de caractères imitant l'écriture manuscrite.
 
 ## Création de la couverture
 
