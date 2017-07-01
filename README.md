@@ -12,7 +12,7 @@ Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier 
 
 Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ; sans même la garantie tacite de QUALITÉ MARCHANDE ou d'ADÉQUATION à UN BUT PARTICULIER. Consultez la _GNU General Public License_ pour plus de détails.
 
-Vous devez avoir reçu une copie de la _GNU General Public License_ en même temps que ce programme ; si ce n'est pas le cas, consultez <(http://www.gnu.org/licenses)>.
+Vous devez avoir reçu une copie de la _GNU General Public License_ en même temps que ce programme ; si ce n'est pas le cas, consultez <http://www.gnu.org/licenses>.
 
 # Création d'un livre (classe publivre)
 
