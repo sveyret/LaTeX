@@ -55,7 +55,7 @@
 \fi
 \ProcessOptions
 
-\LoadClass[twoside]{book}
+\LoadClass{book}
 
 % Francisation
 \DeclareUnicodeCharacter{00A0}{~}
@@ -100,25 +100,25 @@
 
 % Informations sur le livre
 \def\@titre{?Titre?}
-\def\@auteur{\null}
-\def\@auteurssecondaires{\null}
-\def\@couvauteurssecondaires{\null}
+\def\@auteur{\@empty}
+\def\@auteurssecondaires{\@empty}
+\def\@couvauteurssecondaires{\@empty}
 \def\@couvresume{?Résumé?}
 \def\@categorie{?Roman?}
 \def\@editeur{?Auteur-Éditeur?}
 \def\@licence{© \today\relax ?}
-\def\@isbnnum{\null}
-\def\@isbnpapier{\null}
-\def\@impression{\null}
-\def\@depotlegal{\null}
-\def\@dumemeauteur{\null}
+\def\@isbnnum{\@empty}
+\def\@isbnpapier{\@empty}
+\def\@impression{\@empty}
+\def\@depotlegal{\@empty}
+\def\@dumemeauteur{\@empty}
 
 \newcommand\Titre[1]{%
   \def\@titre{#1}%
   \if@html\@writemeta{<dc:title opf:type="main">#1</dc:title>}\fi%
 }
 \newcommand\Auteur[2]{%
-  \ifthenelse{\equal{\@auteur}{\null}}{%
+  \ifthenelse{\equal{\@auteur}{\@empty}}{%
     \def\@auteur{#2 #1}%
   }{%
     \expandafter\def\expandafter\@auteur\expandafter{\@auteur, #2 #1}%
@@ -127,7 +127,7 @@
 }
 \newcommand\AuteurSecondaire[4]{%
   \expandafter\def\expandafter\@auteurssecondaires\expandafter{\@auteurssecondaires\par#4 : #2 #1}%
-  \ifthenelse{\equal{\@couvauteurssecondaires}{\null}}{%
+  \ifthenelse{\equal{\@couvauteurssecondaires}{\@empty}}{%
     \def\@couvauteurssecondaires{#4 : #2 #1 }%
   }{%
   \expandafter\def\expandafter\@couvauteurssecondaires\expandafter{\@couvauteurssecondaires — #4 : #2 #1 }%
@@ -165,7 +165,7 @@
   \def\@isbnnum{#1}%
   \def\@isbnpapier{#2}%
   \if@html%
-    \ifthenelse{\equal{\@isbnnum}{\null}}{}{\@writemeta{<dc:identifier opf:scheme="ISBN">#1</dc:identifier>}}%
+    \ifthenelse{\equal{\@isbnnum}{\@empty}}{}{\@writemeta{<dc:identifier opf:scheme="ISBN">#1</dc:identifier>}}%
   \fi%
 }
 \newcommand\Impression[1]{%
@@ -183,7 +183,7 @@
 
 % AfterBeginDocument n'est pas défini en HTML
 \if@html
-  \def\after@begindocument{\null}
+  \def\after@begindocument{\@empty}
   \newcommand\AfterBeginDocument[1]{%
     \def\after@begindocument{#1}%
   }
@@ -297,7 +297,7 @@
 \AtBeginDocument{%
   \if@chapnum\else\renewcommand\thechapter{}\fi%
   \if@chapindic\else\renewcommand\chaptername{}\fi%
-  \ifthenelse{\equal{\@auteur}{\null}}{\def\@auteur{?Auteur?}}{}%
+  \ifthenelse{\equal{\@auteur}{\@empty}}{\def\@auteur{?Auteur?}}{}%
 }
 
 % Données de couverture
@@ -396,7 +396,7 @@
     \begin{center}%
       \@licence\par%
       \null\par%
-      \ifthenelse{\equal{\@isbnpapier}{\null}}{}{N° ISBN : \@isbnpapier}%
+      \ifthenelse{\equal{\@isbnpapier}{\@empty}}{}{N° ISBN : \@isbnpapier}%
     \end{center}%
     \newpage%
   \fi\fi}%
@@ -416,7 +416,7 @@
     \HCode{<div class="fplegal">}%
     \@licence\par%
     \@auteurssecondaires\par%
-    \ifthenelse{\equal{\@isbnnum}{\null}}{}{N° ISBN : \@isbnnum\par}%
+    \ifthenelse{\equal{\@isbnnum}{\@empty}}{}{N° ISBN : \@isbnnum\par}%
     \@depotlegal%
     \HCode{</div>}%
   %
