@@ -178,7 +178,7 @@
   \@imprimefrancefalse%
 }
 \newcommand\DuMemeAuteur[1]{%
-  \def\@dumemeauteur{\begin{center}DU MÊME AUTEUR\par\par\end{center}\par#1}%
+  \def\@dumemeauteur{\begin{center}DU MÊME AUTEUR\par\end{center}\par#1}%
 }
 
 % AfterBeginDocument n'est pas défini en HTML
@@ -192,8 +192,8 @@
 % Pas de saut de page en mode brouillon
 \ifbrouillon
   \renewcommand\chapter{%
+    \par%
     \thispagestyle{plain}%
-    \global\@topnum\z@%
     \@afterindentfalse%
     \secdef\@chapter\@schapter%
   }
@@ -353,17 +353,17 @@
   % Mode brouillon
   \ifbrouillon%
     \begin{center}%
-      {\Large\textsc{Confidentiel — Merci de ne pas diffuser}\par\par}%
+      {\Large\textsc{Confidentiel — Merci de ne pas diffuser}\par}%
       {\Large\@auteur\par}%
       {\Huge\@titre\par}\vspace{\baselineskip}\textsc{\@categorie}\par%
       (mode révision)\par%
     \end{center}%
     {\small\emph{N'hésitez pas à annoter le texte directement, si possible au stylo rouge. %
     Des marques dans la marge pour repérer plus facilement les annotations seront appréciées.}}\par%
-    Résumé :\par\@couvresume\par\par%
+    Résumé :\par\@couvresume\par%
     \vspace*{\stretch{1}}{\small\@dumemeauteur\par\hrulefill\@auteurssecondaires}%
     \begin{center}%
-      {\Large\par\par\textsc{Confidentiel — Merci de ne pas diffuser}}%
+      {\Large\par\textsc{Confidentiel — Merci de ne pas diffuser}}%
     \end{center}%
     \newpage%
   %
