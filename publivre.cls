@@ -269,21 +269,34 @@
   \renewcommand\headrulewidth{0pt}%
   \renewcommand\footrulewidth{0pt}%
 }
+\fancypagestyle{headings}{%
+  \fancyhf{}%
+  \ifbrouillon%
+    \fancyhead[L]{\textit{\@titre}}%
+    \fancyhead[R]{Version du \today}%
+  \else
+    \fancyhead[CE]{\small{\@auteur}}
+    \fancyhead[CO]{\textit{\@titre}}
+  \fi%
+  \renewcommand\headrulewidth{0pt}%
+  \renewcommand\footrulewidth{0pt}%
+}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[C]{\thepage}
 \ifbrouillon
-\fancyhead[L]{\textit{\@titre}}
-\fancyhead[R]{Version du \today}
+  \fancyhead[L]{\textit{\@titre}}
+  \fancyhead[R]{Version du \today}
 \else
-\fancyhead[CE]{\small{\@auteur}}
-\fancyhead[CO]{\textit{\@titre}}
+  \fancyhead[CE]{\small{\@auteur}}
+  \fancyhead[CO]{\textit{\@titre}}
 \fi
 \renewcommand\headrulewidth{0pt}
 \renewcommand\footrulewidth{0pt}
 
 % Saut de page avec reprise sur page impaire
 \renewcommand\cleardoublepage{%
+  \thispagestyle{headings}%
   \clearpage%
   \ifodd\c@page%
   \else%
@@ -404,6 +417,7 @@
 
 % Pages standards a la fin du livre
 \AtEndDocument{%
+  \thispagestyle{headings}%
   \clearpage%
   %
   % Mode brouillon
