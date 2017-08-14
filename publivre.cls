@@ -294,6 +294,14 @@
 \renewcommand\headrulewidth{0pt}
 \renewcommand\footrulewidth{0pt}
 
+% Style vide pour les parties
+\renewcommand\part{%
+  \if@openright \cleardoublepage \else \clearpage \fi%
+  \thispagestyle{empty}%
+  \if@twocolumn \onecolumn \@tempswatrue \else \@tempswafalse \fi%
+  \null \vfil \secdef \@part \@spart%
+}
+
 % Saut de page avec reprise sur page impaire
 \renewcommand\cleardoublepage{%
   \thispagestyle{headings}%
