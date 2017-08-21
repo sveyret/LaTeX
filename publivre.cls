@@ -294,8 +294,25 @@
 \renewcommand\headrulewidth{0pt}
 \renewcommand\footrulewidth{0pt}
 
+% Traitements de fin de chapitre
+\newif\if@danschapitre % Un chapitre a commencé
+\@danschapitrefalse
+\newcommand\AtEndChapter{%
+  \thispagestyle{headings}%
+}
+\newcommand\@TestEndChapter{%
+  \if@danschapitre\@danschapitrefalse\par\AtEndChapter\fi%
+}
+\let\@chapterORIG\chapter%
+\renewcommand{\chapter}{%
+  \@TestEndChapter%
+  \@danschapitretrue%
+  \@chapterORIG%
+}
+
 % Style vide pour les parties
 \renewcommand\part{%
+  \@TestEndChapter%
   \if@openright \cleardoublepage \else \clearpage \fi%
   \thispagestyle{empty}%
   \if@twocolumn \onecolumn \@tempswatrue \else \@tempswafalse \fi%
@@ -304,7 +321,6 @@
 
 % Saut de page avec reprise sur page impaire
 \renewcommand\cleardoublepage{%
-  \thispagestyle{headings}%
   \clearpage%
   \ifodd\c@page%
   \else%
@@ -425,7 +441,7 @@
 
 % Pages standards a la fin du livre
 \AtEndDocument{%
-  \thispagestyle{headings}%
+  \@TestEndChapter%
   \clearpage%
   %
   % Mode brouillon
@@ -443,8 +459,8 @@
     \HCode{</div>}%
   %
   % Mode livre
-  \else%
-    {\pagestyle{empty}%
+  \else{%
+    \pagestyle{empty}%
     \newcount\pageMod\pageMod=\value{page}%
     \divide\pageMod by 4% Il faut un multiple de 4 pages
     \pageMod=\number\numexpr\value{page}-\pageMod*4\relax%
@@ -455,8 +471,8 @@
       \if@imprimefrance\emph{Imprimé en France}\par\fi%
       \@impression\par\null\par\@depotlegal%
     \end{center}%
-    \newpage\thispagestyle{empty}\null}%
-    \fi\fi%
+    \newpage\thispagestyle{empty}\null%
+  }\fi\fi%
 }
 
 % Construction du sommaire
@@ -475,12 +491,12 @@
     \setlength{\parskip}{0pt plus 1.0pt}%
   }
 
-  \let\aclORIG\addcontentsline
+  \let\@aclORIG\addcontentsline
   \renewcommand{\addcontentsline}[3]{%
-    \aclORIG{#1}{#2}{#3}%
+    \@aclORIG{#1}{#2}{#3}%
     \ifthenelse{% Inserer chapitres et parties
       \equal{#2}{chapter} \or \equal{#2}{part}}{%
-      \aclORIG{som}{#2}{#3}}{}}
+      \@aclORIG{som}{#2}{#3}}{}}
 \fi
 
 % Style barré
