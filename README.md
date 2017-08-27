@@ -14,9 +14,13 @@ Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GAR
 
 Vous devez avoir reçu une copie de la _GNU General Public License_ en même temps que ce programme ; si ce n'est pas le cas, consultez <http://www.gnu.org/licenses>.
 
+# Installation
+
+Pour pouvoir utiliser les classes fournies, il suffit de copier l'ensemble des fichiers livrés dans un répertoire quelconque. Par défaut, les exemples fournis considèrent que les fichiers se trouvent dans le sous-répertoire LaTeX de votre répertoire personnel ($HOME/LaTeX), mais cette valeur peut être facilement modifiée dans le fichier _Makefile_ (voir plus bas).
+
 # Création d'un livre (classe publivre)
 
-Cette classe permet de rédiger un livre à publier. Cette classe s'utilise avec le modèle de Makefile (Makefile.publivre) fourni.
+Cette classe permet de rédiger un livre à publier. Pour débuter un nouveau livre, n'hésitez pas à vous inspirer de l'exemple livré (_modeles/publivre_).
 
 Avec cette classe, vous pouvez, à partir d'un fichier .tex et un fichier Scribus (.sla) générer :
 * le fichier avec le contenu du livre, au format classique attendu par un imprimeur (*.pdf) ;
@@ -94,12 +98,11 @@ Votre document doit obligatoirement contenir des champs ayant les noms suivants.
 Un fichier _Makefile_ est fourni à titre de modèle pour votre projet de livre. Il se trouve, avec un exemple, dans le répertoire _modele/publivre_. Ce fichier doit être copié dans le répertoire contenant les sources du projet, puis adapté en modifiant les variables qui se trouvent au début du fichier :
 * _BASENAME_ doit contenir la « racine » du nom du projet ; c'est le nom, hors extension, de tous les fichiers concernant le projet (fichier .tex et .sla, ainsi que fichiers générés) ;
 * _LATEXFILES_ contient le chemin vers le répertoire contenant les fichiers de ce projet ;
-* les autres noms de fichiers sont déduits automatiquement de la première variable et ne devraient pas avoir besoin d'être modifiés ;
 * _COVERRES_ doit contenir, en points par pouce, la résolution de l'image qui sera extraite de la couverture papier pour être insérée dans le livre numérique ;
 * _COVERCUT_ contient la taille, en millimètres, de la partie de couverture qui doit être coupée (fond perdu, traits de coupe, etc.)
 
 Lorsque le fichier _Makefile_ est prêt, vous pouvez utiliser, si l'outil _Make_ est installé sur votre poste (c'est le cas sur la plupart des distribution Linux) :
-* _make_ sans argument exécutera par défaut la cible _all_ et générera la couverture et l'intérieur du livre papier, la version brouillon et la version numérique du livre ;
+* _make_ sans argument, qui exécutera par défaut la cible _all_ et générera la couverture et l'intérieur du livre papier, la version brouillon et la version numérique du livre ;
 * _make draft_ pour générer la version brouillon (mode révision) du livre ;
 * _make print_ pour générer la couverture et l'intérieur du livre papier ;
 * _make ebook_ pour générer le livre numérique ;
@@ -111,6 +114,7 @@ Bien sûr, vous pouvez également appeler _make_ pour générer n'importe quel f
 ## À faire
 
 * Générer automatiquement le code barre pour la couverture.
+* Ne pas enregistrer le fichier .sla s'il n'a pas été modifié.
 
 # Création d'un scénario (classe filmscenario)
 
