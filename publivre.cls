@@ -107,8 +107,8 @@
 \def\@categorie{?Roman?}
 \def\@editeur{?Auteur-Éditeur?}
 \def\@licence{© \today\relax ?}
-\def\@isbnnum{\@empty}
 \def\@isbnpapier{\@empty}
+\def\@isbnnum{\@empty}
 \def\@impression{\@empty}
 \def\@depotlegal{\@empty}
 \def\@dumemeauteur{\@empty}
@@ -162,8 +162,8 @@
   \if@html\@writemeta{<dc:rights>#1</dc:rights>}\fi%
 }
 \newcommand\Isbn[2]{%
-  \def\@isbnnum{#1}%
-  \def\@isbnpapier{#2}%
+  \def\@isbnpapier{#1}%
+  \def\@isbnnum{#2}%
   \if@html%
     \ifthenelse{\equal{\@isbnnum}{\@empty}}{}{\@writemeta{<dc:identifier opf:scheme="ISBN">#1</dc:identifier>}}%
   \fi%
