@@ -1,3 +1,7 @@
+PRINT=$(BASENAME).pdf $(BASENAME).cover.pdf
+DRAFT=$(BASENAME).draft.pdf
+EBOOK=$(BASENAME).epub
+
 all: draft print ebook
 
 draft: $(DRAFT)
