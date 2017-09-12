@@ -3,4 +3,4 @@ LATEXFILES=~/LaTeX
 COVERRES=120
 COVERCUT=15
 
-include $(LATEXFILES)/publivre.mk
+include $(LATEXFILES)/livrelitt.mk

@@ -1,19 +1,17 @@
 % Ce livre n'a pas beaucoup de page, alors on le « gonfle » artificiellement avec petitlivre
-% On utilise des numéros de chapitre, mais sans écrire « Chapitre » devant
-\documentclass[petitlivre,chapnumsimple]{publivre}
+\documentclass[petitlivre]{livrelitt}
 
 \Titre{Mon livre}
-\Auteur{Doe}{John}
-\AuteurSecondaire{Carstens-Peters}{Glenn}{pht}{Photographie}
-\AuteurSecondaire{François}{Pascale et Jean-Luc}{ill}{Illustrations}
+\Auteur{Doe, John}
+\Contributeur{[pht/Photographie] Carstens-Peters, Glenn \et [ill/Illustrations] François, Pascale et Jean-Luc}
 \Categorie{Roman}
-\Editeur{Auteur-Éditeur}
-\Licence{© John Doe, 2017}
-\Isbn{978-0-0000000-1-9}{978-0-0000000-0-2}
-\Impression{Imprimerie du Lac, 2017}
+\Editeur{Éditions du bois}
+\DroitsDAuteur{© John Doe, 2017}
+\Isbn{978-0-0000000-0-2}{978-0-0000000-1-9}
+\InfoImpression{Imprimerie du Lac, 2017}
 \DepotLegal{juillet 2017}
 
-\CouvResume{Ce livre regroupe des textes libres de droits, glanés ça et là, afin de servir de démonstration pour l'écosystème « publivre ». Ce résumé fait lui-même partie de la démonstration.
+\Resume{Ce livre regroupe des textes libres de droits, glanés ça et là, afin de servir de démonstration pour l'écosystème « livrelitt ». Ce résumé fait lui-même partie de la démonstration.
 
 On peut d'ailleurs constater que les paragraphes multiples sont supportés par cette commande de résumé.}
 
@@ -101,6 +99,6 @@ Cependant, Ned Land, furieux de ces façons de procéder, donnait un libre cours
 
 \includegraphics[width=5cm]{maison-etang.jpg}
 
-\sommaire
+\tableofcontents
 
 \end{document}

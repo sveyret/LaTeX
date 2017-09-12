@@ -11,7 +11,7 @@ print: $(PRINT)
 ebook: $(EBOOK)
 
 %.draft.pdf: %.tex
-	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -jobname=$(basename $@) -pdflatex="pdflatex -jobname=$(basename $@) '\\newcommand\\Brouillon{\\brouillontrue} \\input{%S}'" $<
+	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -jobname=$(basename $@) -pdflatex="pdflatex -jobname=$(basename $@) '\\newcommand\\ModeBrouillon{1} \\input{%S}'" $<
 	latexmk -jobname=$(basename $@) -c
 	rm -f $(basename $@).som
 
