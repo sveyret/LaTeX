@@ -53,6 +53,7 @@
 \newif\ifllt@smallbook\llt@smallbookfalse % Petit livre (faible nombre de pages)
 \newif\ifllt@autodropcap\llt@autodropcapfalse % Ajoute des lettrines en début de chapitre
 \newlength\llt@temp@length % Une longueur temporaire (utilisée notamment pour le style barré)
+\newcount\llt@temp@count % Un compteur temporaire (utilisé notamment en fin de livre et dans les lettrines)
 
 %%%%%%%%%%%%
 % Options et classe de base
@@ -331,6 +332,23 @@
 %%%%%%%%%%%%
 % Gestion des lettrines
 
+\long\def\llt@ltn@capture@par#1 \par{%
+  \def\llt@z@temp{#1}%
+  \ifx\llt@z@temp\@empty%
+    \let\llt@z@next=\llt@ltn@capture@par%
+  \else%
+    \prevgraf0%
+    \llt@ltn@capture #1 \par%
+    {%
+      \llt@temp@count=\numexpr2-\prevgraf\relax%
+      \ifnum\llt@temp@count>0%
+        \vspace{\llt@temp@count\baselineskip}%
+      \fi%
+    }%
+    \let\llt@z@next=\relax%
+  \fi%
+  \llt@z@next%
+}
 \long\def\llt@ltn@capture{%
   \@ifnextchar[ \llt@@ltn@capture{\llt@@ltn@capture[]}%
 }
@@ -486,7 +504,7 @@
   \def\ChapitreActuel{#1}%
   \def\llt@inside@chapter{1}%
   \llt@mark%
-  \ifllt@autodropcap\expandafter\llt@ltn@capture\fi%
+  \ifllt@autodropcap\expandafter\llt@ltn@capture@par\fi%
 }
 \def\llt@schapter#1{%
   \llt@pagebreak@disable%
@@ -753,11 +771,11 @@
     \llt@digital@pagebreak%
   \or%
     % Imprimerie
-    \newcount\pageMod\pageMod=\thepage%
-    \divide\pageMod by 4% Il faut un multiple de 4 pages
-    \pageMod=\number\numexpr\thepage-\pageMod*4\relax\relax%
-    \ifnum\pageMod=0\relax\null\newpage\fi%
-    \ifnum\pageMod<3\relax\null\cleardoublepage\fi%
+    \llt@temp@count=\thepage%
+    \divide\llt@temp@count by 4% Il faut un multiple de 4 pages
+    \llt@temp@count=\numexpr\thepage-\llt@temp@count*4\relax%
+    \ifnum\llt@temp@count=0\relax\null\newpage\fi%
+    \ifnum\llt@temp@count<3\relax\null\cleardoublepage\fi%
     \vspace*{\fill}%
     \begin{center}%
       \ifllt@printfrance\emph{Imprimé en France}\par\fi%
