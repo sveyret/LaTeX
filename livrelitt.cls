@@ -12,7 +12,7 @@
 \RequirePackage[T1]{fontenc} % Format de sortie
 \RequirePackage{lmodern} % Police de caractère
 \RequirePackage{graphicx} % Insertion d'images
-\RequirePackage[francais]{babel} % Conventions pour le français
+\RequirePackage[french]{babel} % Conventions pour le français
 \RequirePackage[autolanguage]{numprint} % Écriture de nombres
 \RequirePackage{lettrine} % Lettrines
 

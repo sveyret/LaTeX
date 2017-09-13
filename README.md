@@ -78,26 +78,26 @@ Les valeurs par défaut peuvent être modifiées par les commandes, utilisables 
 * \Entete[_position_]{_valeur_} pour positionner les en-têtes ;
 * \PiedPage[_position_]{_valeur_} pour indiquer les pieds de page.
 
-Ces commandes acceptent en premier paramètre par défaut, entre crochets pour indiquer si l'on souhaite modifier les pages de droite (avec un D) ou les pages de gauche (avec un G). Si cette valeur n'est pas indiquée, ou est différente de D ou G, les deux côtés sont modifiées. Les définitions suivantes peuvent être utiles pour ces commandes :
+Ces commandes acceptent en premier paramètre, optionnel, entre crochets, un lettre pour indiquer si l'on souhaite modifier les pages de droite (avec un D) ou les pages de gauche (avec un G). Si cette valeur n'est pas indiquée, ou est différente de D ou G (en lettres capitales), les deux côtés sont modifiés. Les définitions suivantes peuvent être utiles pour ces commandes :
 * \LeTitre, qui sera remplacé par le titre du livre ;
 * \LAuteur, qui sera remplacé par l'auteur du livre ;
 * \LaPartie{_marque_} pour extraire le nom de la partie en cours ;
 * \LeChapitre{_marque_} pour extraire le nom du chapitre en cours.
 
-Pour ces deux dernières commandes, il faut spécifier la marque à utiliser, parmi _\topmark_ _\botmark_ et _\firstmark_ pour respectivement le dernier élément de la page précédente, le dernier élément de la page en cours ou le premier élément de la page en cours (cf. manuel d'utilisation de TeX).
+Pour ces deux dernières commandes, il faut spécifier la marque à utiliser, parmi _\topmark_, _\botmark_ et _\firstmark_ pour respectivement le dernier élément de la page précédente, le dernier élément de la page en cours ou le premier élément de la page en cours (cf. manuel d'utilisation de TeX).
 
 ## Création de la couverture
 
 La couverture doit être créée avec Scribus. Il est conseillé de faire déborder vos images, couleurs, etc. de quelques millimètres et définir un « fond perdu ». Il est également possible d'indiquer des traits de coupe. La taille du fond perdu et la longueur des traits de coupe peuvent se régler dans le menu _Fichier_/_Réglage du document_, onglet _Export PDF_. Demandez à votre imprimeur les paramètres dont il a besoin.
 
 Votre document doit obligatoirement contenir des champs ayant les noms suivants. Vous pouvez toutefois jouer sur la position, la taille et la couleur de ces champs afin qu'ils ne soient pas visibles :
-* _Auteur_ pour le nom de l'auteur (ou des auteurs) sur la première couverture ;
+* _Auteur_ pour le nom de l'auteur (ou des auteurs) sur la première de couverture ;
 * _AuteurDos_ qui contiendra également le nom de l'auteur, est prévu pour le dos du livre ;
 * _AuteurTranche_, toujours pour le nom de l'auteur, est prévu pour la tranche du livre ;
 * _Titre_ avec le titre du livre sur l'avant du livre ;
 * _TitreDos_, également pour le titre, mais sur le dos du livre ;
 * _TitreTranche_, encore pour le titre, prévu pour la tranche du livre ;
-* _Contributeur_ contiendra le nom des éventuels contributeurs (auteurs secondaires) ;
+* _Contributeur_ contiendra le nom des éventuels contributeurs ;
 * _Éditeur_, pour la face avant du livre, contiendra la nom de l'éditeur ;
 * _ÉditeurDos_ est également pour le nom de l'éditeur, mais prévu pour le dos du livre ;
 * _Résumé_, prévu pour le résumé de quatrième de couverture ;
