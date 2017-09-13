@@ -15,6 +15,7 @@
 \RequirePackage[french]{babel} % Conventions pour le français
 \RequirePackage[autolanguage]{numprint} % Écriture de nombres
 \RequirePackage{lettrine} % Lettrines
+\RequirePackage{afterpage} % Après la page courante
 
 %%%%%%%%%%%%
 % Définir le mode d'exécution (numérique, imprimerie, révision/brouillon)
@@ -679,6 +680,8 @@
     \Css{.fplegal{margin-top: 50\%; text-align: center;}}%
     \Css{.fplegal p{text-indent: 0;}}%
     \Css{.handwriting{font-family: cursive;}}%
+    \Css{.fpillustration{width: 100\%; text-align: center; page-break-inside: avoid;}}%
+    \Css{.fpillustration svg{display: inline-block; height: 100\%; margin: 0 auto;}}%
     \Tag{TITLE+}{\@title}%
     \Configure{newpage}{\llt@digital@pagebreak}%
     \Configure{@BODY}{%
@@ -700,9 +703,6 @@
       \Picture[pict]{\csname Gin@base\endcsname .png%
       \space width="\expandafter\the\csname Gin@req@width\endcsname"%
     }}%
-    \ConfigureEnv{figure}%
-      {\llt@digital@nopar\HCode{<div class="figure">}\HtmlParOff}%
-      {\HCode{</div>}\HtmlParOn\par}{}{}%
   \or%
     % Imprimerie
     \null\newpage%
@@ -820,6 +820,31 @@
   \fi%
   \end{center}%
   \par%
+}
+
+% Illustration
+\newcommand\illustrationpp[1]{%
+  \ifcase\GenMode\relax%
+    % Numérique
+    \llt@digital@nopar%
+    \HCode{<div class="fpillustration">}%
+    \HCode{<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100\%" height="100\%" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid meet">}%
+    \HCode{<image width="600" height="800" xlink:href="#1.png"/>}%
+    \HCode{</svg>}%
+    \HCode{</div>}%
+  \or%
+    % Imprimerie
+    \afterpage{%
+      \vspace*{\stretch{1}}%
+      \noindent\includegraphics[width=\textwidth]{#1.png}%
+      \vspace*{\stretch{1}}%
+      \thispagestyle{empty}%
+      \newpage%
+    }%
+  \or%
+    % Brouillon
+    \par\begin{center}{\Large[Emplacement pour une image]}\end{center}\par%
+  \fi%
 }
 
 %%%%%%%%%%%%
