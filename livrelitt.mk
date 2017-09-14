@@ -13,15 +13,13 @@ ebook: $(EBOOK)
 %.draft.pdf: %.tex
 	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -jobname=$(basename $@) -pdflatex="pdflatex -jobname=$(basename $@) '\\newcommand\\ModeBrouillon{1} \\input{%S}'" $<
 	latexmk -jobname=$(basename $@) -c
-	rm -f $(basename $@).som
 
 %.pdf %.data: %.tex
 	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -pdflatex=pdflatex $<
 	latexmk -c
-	rm -f $(basename $@).som
 
 %.cover.pdf: %.sla %.data
-	scribus -g -ns $< -py $(LATEXFILES)/autoPDF.py $@ $*.sla $*.data
+	scribus -g -ns $< -py $(LATEXFILES)/autoPDF.py $@ $*.data
 
 %.cover.ppm: %.cover.pdf
 	pdftoppm -singlefile -r $(COVERRES) $< >$@
