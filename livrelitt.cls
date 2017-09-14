@@ -680,8 +680,8 @@
     \Css{.fplegal{margin-top: 50\%; text-align: center;}}%
     \Css{.fplegal p{text-indent: 0;}}%
     \Css{.handwriting{font-family: cursive;}}%
-    \Css{.fpillustration{width: 100\%; text-align: center; page-break-inside: avoid;}}%
-    \Css{.fpillustration svg{display: inline-block; height: 100\%; margin: 0 auto;}}%
+    \Css{.pageillustr{width: 100\%; text-indent: 0; text-align: center; page-break-inside: avoid; page-break-before: auto; page-break-after: auto;}}%
+    \Css{.pageillustr svg{display: inline-block; width: 100\%; margin: 0 auto;}}%
     \Tag{TITLE+}{\@title}%
     \Configure{newpage}{\llt@digital@pagebreak}%
     \Configure{@BODY}{%
@@ -822,21 +822,21 @@
   \par%
 }
 
-% Illustration
-\newcommand\illustrationpp[1]{%
+% Illustration pleine page
+\newcommand\pageillustr[1]{%
   \ifcase\GenMode\relax%
     % Numérique
     \llt@digital@nopar%
-    \HCode{<div class="fpillustration">}%
+    \HCode{<div class="pageillustr">}%
     \HCode{<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100\%" height="100\%" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid meet">}%
-    \HCode{<image width="600" height="800" xlink:href="#1.png"/>}%
+    \HCode{<image width="600" height="800" xlink:href="#1"/>}%
     \HCode{</svg>}%
     \HCode{</div>}%
   \or%
     % Imprimerie
     \afterpage{%
       \vspace*{\stretch{1}}%
-      \noindent\includegraphics[width=\textwidth]{#1.png}%
+      \noindent\includegraphics[width=\textwidth]{#1}%
       \vspace*{\stretch{1}}%
       \thispagestyle{empty}%
       \newpage%

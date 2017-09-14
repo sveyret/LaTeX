@@ -66,7 +66,7 @@ Cette classe hérite de la classe standard « book ». Vous pouvez donc utilis
 * \barre{_texte_} pour afficher un texte barré ;
 * \etranger{_texte_} pour du texte en langue étrangère ;
 * \separateurpar qui ajoute un [astérisme](https://fr.wikipedia.org/wiki/Ast%C3%A9risme_(typographie)) afin de séparer deux paragraphes logiques ;
-* \illustrationpp{_image_} pour ajouter une illustration pleine page ; l'illustration est une image de type .png (l'extension est ajoutée automatiquement au nom indiqué) de taille 600x800 ou proportionnelle, qui sera placée sur l'intégralité de la prochaine page.
+* \pageillustr{_image_} pour ajouter une illustration pleine page ; l'illustration est une image de taille 600x800 ou proportionnelle, qui sera placée sur l'intégralité de la prochaine page.
 
 Des environnements supplémentaires peuvent également être utilisés :
 * \begin{dedicace}…\end{dedicace} permet de délimiter la dédicace du livre ; cette dédicace s'affiche sur une page vide, les paragraphes alignés à droite ;
