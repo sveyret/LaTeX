@@ -425,6 +425,16 @@
 }
 
 %%%%%%%%%%%%
+% Sauver le comportement par défaut
+
+\let\llt@sav@clearpage=\clearpage
+\let\llt@sav@newpage=\newpage
+\let\llt@sav@part=\part
+\let\llt@sav@chapter=\chapter
+\let\llt@sav@tableofcontents=\tableofcontents
+\let\llt@sav@includegraphics=\includegraphics
+
+%%%%%%%%%%%%
 % Parties et chapitres
 
 \def\PartieActuelle{}
@@ -445,13 +455,6 @@
   \mark{\PartieActuelle \noexpand\or \ChapitreActuel \noexpand\or \llt@inside@chapter}%
 }
 \llt@mark
-
-% Sauver et modifier le comportement par défaut
-\let\llt@sav@clearpage=\clearpage
-\let\llt@sav@newpage=\newpage
-\let\llt@sav@part=\part
-\let\llt@sav@chapter=\chapter
-\let\llt@sav@tableofcontents=\tableofcontents
 
 % Supprimer la gestion des marques par défaut
 \def\markright#1{\relax}
@@ -703,6 +706,10 @@
       \Picture[pict]{\csname Gin@base\endcsname .png%
       \space width="\expandafter\the\csname Gin@req@width\endcsname"%
     }}%
+    \Configure{graphics*}{jpg}{%
+      \Picture[pict]{\csname Gin@base\endcsname .jpg%
+      \space width="\expandafter\the\csname Gin@req@width\endcsname"%
+    }}%
   \or%
     % Imprimerie
     \null\newpage%
@@ -829,14 +836,14 @@
     \llt@digital@nopar%
     \HCode{<div class="pageillustr">}%
     \HCode{<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100\%" height="100\%" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid meet">}%
-    \HCode{<image width="600" height="800" xlink:href="#1"/>}%
+    \HCode{<image width="600" height="800" xlink:href="images/#1"/>}%
     \HCode{</svg>}%
     \HCode{</div>}%
   \or%
     % Imprimerie
     \afterpage{%
       \vspace*{\stretch{1}}%
-      \noindent\includegraphics[width=\textwidth]{#1}%
+      \noindent\llt@sav@includegraphics[width=\textwidth]{pictures/#1}%
       \vspace*{\stretch{1}}%
       \thispagestyle{empty}%
       \newpage%
@@ -844,6 +851,20 @@
   \or%
     % Brouillon
     \par\begin{center}{\Large[Emplacement pour une image]}\end{center}\par%
+  \fi%
+}
+
+% Modification du comportement par défaut
+\renewcommand\includegraphics[2][]{%
+  \ifcase\GenMode\relax%
+    % Numérique
+    \llt@sav@includegraphics[#1]{images/#2}%
+  \or%
+    % Imprimerie
+    \llt@sav@includegraphics[#1]{pictures/#2}%
+  \or%
+    % Brouillon
+    \par\begin{center}[Emplacement pour une image]\end{center}\par%
   \fi%
 }
 

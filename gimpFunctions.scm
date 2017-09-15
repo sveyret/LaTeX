@@ -2,7 +2,7 @@
   (let*
     (
       (image (car (gimp-file-load RUN-NONINTERACTIVE inFile inFile) ) )
-      (drawable (car (gimp-image-active-drawable image) ) )
+      (drawable (car (gimp-image-get-active-drawable image) ) )
       (width (car (gimp-image-width image) ) )
       (height (car (gimp-image-height image) ) )
       (xsize (/ (* 148 res) 25.4) )
@@ -12,6 +12,35 @@
     )
     (gimp-image-crop image xsize ysize xpos ypos)
     (file-png-save-defaults RUN-NONINTERACTIVE image drawable outFile outFile)
+  )
+)
+(define (convert-ebook inFile outFile type)
+  (let*
+    (
+      (image (car (gimp-file-load RUN-NONINTERACTIVE inFile inFile) ) )
+      (drawable (car (gimp-image-get-active-drawable image) ) )
+      (width (car (gimp-image-width image) ) )
+      (height (car (gimp-image-height image) ) )
+      (scale (max (/ width (min width 600) ) (/ height (min height 800) ) ) )
+    )
+    (gimp-image-scale image (/ width scale) (/ height scale) )
+    (if (equal? type "png")
+      (file-png-save-defaults RUN-NONINTERACTIVE image drawable outFile outFile)
+      (file-jpeg-save RUN-NONINTERACTIVE image drawable outFile outFile .9 0 1 1 "" 2 0 0 0)
+    )
+  )
+)
+(define (convert-print inFile outFile type)
+  (let*
+    (
+      (image (car (gimp-file-load RUN-NONINTERACTIVE inFile inFile) ) )
+      (drawable (car (gimp-image-get-active-drawable image) ) )
+    )
+    (gimp-image-convert-grayscale image)
+    (if (equal? type "png")
+      (file-png-save-defaults RUN-NONINTERACTIVE image drawable outFile outFile)
+      (file-jpeg-save RUN-NONINTERACTIVE image drawable outFile outFile .9 0 1 1 "" 2 0 0 0)
+    )
   )
 )
 

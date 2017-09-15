@@ -66,7 +66,7 @@ Cette classe hérite de la classe standard « book ». Vous pouvez donc utilis
 * \barre{_texte_} pour afficher un texte barré ;
 * \etranger{_texte_} pour du texte en langue étrangère ;
 * \separateurpar qui ajoute un [astérisme](https://fr.wikipedia.org/wiki/Ast%C3%A9risme_(typographie)) afin de séparer deux paragraphes logiques ;
-* \pageillustr{_image_} pour ajouter une illustration pleine page ; l'illustration est une image de taille 600x800 ou proportionnelle, qui sera placée sur l'intégralité de la prochaine page.
+* \pageillustr{_image_} pour ajouter une illustration pleine page (l'illustration sera placée sur l'intégralité de la prochaine page) ; pour plus d'informations sur les formats d'image, voir [ci-dessous](https://github.com/sveyret/LaTeX#images).
 
 Des environnements supplémentaires peuvent également être utilisés :
 * \begin{dedicace}…\end{dedicace} permet de délimiter la dédicace du livre ; cette dédicace s'affiche sur une page vide, les paragraphes alignés à droite ;
@@ -86,6 +86,16 @@ Ces commandes acceptent en premier paramètre, optionnel, entre crochets, un let
 * \LeChapitre{_marque_} pour extraire le nom du chapitre en cours.
 
 Pour ces deux dernières commandes, il faut spécifier la marque à utiliser, parmi _\topmark_, _\botmark_ et _\firstmark_ pour respectivement le dernier élément de la page précédente, le dernier élément de la page en cours ou le premier élément de la page en cours (cf. manuel d'utilisation de TeX).
+
+### Images
+
+Les images à insérer dans le livre doivent se trouver dans le même répertoire que le document LaTeX. Ces images doivent être au format PNG ou JPEG et avoir respectivement l'extension _.png_ ou _.jpg_.
+
+Les images peuvent être en couleur et doivent avoir la meilleure résolution possible. Pour une image à utiliser en pleine page (avec \pageillustr), la taille doit être de 600×800 ou proportionnelle.
+
+Les images sont automatiquement modifiées comme suit :
+* pour la version numérique du livre, les images sont rabaissées à une résolution maximale de 600×800 ;
+* pour la version imprimable du livre, les images sont converties en niveaux de gris.
 
 ## Création de la couverture
 
