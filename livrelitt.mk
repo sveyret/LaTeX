@@ -19,13 +19,13 @@ ebook: $(EBOOK)
 	latexmk -c
 
 %.cover.pdf: %.sla %.data
-	scribus -g -ns $< -py $(LATEXFILES)/autoPDF.py $@ $*.data
+	scribus -g -ns $< -py $(LATEXFILES)/createCover.py $@ $*.data
 
 %.cover.ppm: %.cover.pdf
 	pdftoppm -singlefile -r $(COVERRES) $< >$@
 
 %.cover.png: %.cover.ppm
-	echo '(extract-cover "$<" "$@" $(COVERRES) $(COVERCUT)) (gimp-quit 0)' | cat $(LATEXFILES)/extractCover.scm - | gimp -i -b -
+	echo '(extract-cover "$<" "$@" $(COVERRES) $(COVERCUT)) (gimp-quit 0)' | cat $(LATEXFILES)/gimpFunctions.scm - | gimp -i -b -
 
 %.html %.css %.opf: %.tex
 	TEXINPUTS=".:$(LATEXFILES):" mk4ht htlatex $< "xhtml,fn-in,charset=utf-8" " -cunihtf -utf8"
