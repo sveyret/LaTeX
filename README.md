@@ -98,6 +98,8 @@ Les images sont automatiquement modifiées comme suit :
 * pour la version numérique du livre, les images sont rabaissées à une résolution maximale de 600×800 ;
 * pour la version imprimable du livre, les images sont converties en niveaux de gris.
 
+**Important !** Des répertoires _images_ et _pictures_ sont automatiquement créés par le processus automatique pour gérer les images utilisées dans le livre électronique et dans la version imprimable. Ne créez surtout pas de tels répertoires vous-même, car ils **seront supprimés** dès l'exécution d'un _make clean_.
+
 ## Création de la couverture
 
 La couverture doit être créée avec Scribus. Il est conseillé de faire déborder vos images, couleurs, etc. de quelques millimètres et définir un « fond perdu ». Il est également possible d'indiquer des traits de coupe. La taille du fond perdu et la longueur des traits de coupe peuvent se régler dans le menu _Fichier_/_Réglage du document_, onglet _Export PDF_. Demandez à votre imprimeur les paramètres dont il a besoin.
