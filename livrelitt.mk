@@ -8,6 +8,15 @@ JPGS=$(wildcard *.jpg)
 PRINTIMAGES=$(addprefix $(PRINTIMAGEDIR)/, $(PNGS)) $(addprefix $(PRINTIMAGEDIR)/,  $(JPGS))
 EBOOKIMAGES=$(addprefix $(EBOOKIMAGEDIR)/, $(PNGS)) $(addprefix $(EBOOKIMAGEDIR)/,  $(JPGS))
 
+define TEST_TEX=
+echo " * Guillemets ouvrants suivis d'une espace insécable (utiliser «~ pour passer outre) :" \
+&& perl -ne 'BEGIN{$$found=0};if(m/«\xC2\xA0/){print;$$found=1};END{exit $$found}' $(1) \
+&& echo " * Guillemets fermants précédés d'une espace insécable (utiliser ~» pour passer outre) :" \
+&& perl -ne 'BEGIN{$$found=0};if(m/\xC2\xA0»/){print;$$found=1};END{exit $$found}' $(1) \
+&& echo " * Tirets quadratins suivis d'une espace simple (utiliser —\space pour passer outre) :" \
+&& perl -ne 'BEGIN{$$found=0};if(m/^—\s+/){print;$$found=1};END{exit $$found}' $(1)
+endef
+
 all: draft print ebook
 
 draft: $(DRAFT)
@@ -33,10 +42,12 @@ $(EBOOKIMAGEDIR)/%.jpg: %.jpg
 	echo '(convert-ebook "$<" "$@" "jpg") (gimp-quit 0)' | cat $(LATEXFILES)/gimpFunctions.scm - | gimp -i -b -
 
 %.draft.pdf: %.tex
+	@$(call TEST_TEX, $<)
 	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -jobname=$(basename $@) -pdflatex="pdflatex -jobname=$(basename $@) '\\newcommand\\ModeBrouillon{1} \\input{%S}'" $<
 	latexmk -jobname=$(basename $@) -c
 
 %.pdf %.data: %.tex $(PRINTIMAGES)
+	@$(call TEST_TEX, $<)
 	TEXINPUTS=".:$(LATEXFILES):" latexmk -pdf -pdflatex=pdflatex $<
 	latexmk -c
 
@@ -50,6 +61,7 @@ $(EBOOKIMAGEDIR)/%.jpg: %.jpg
 	echo '(extract-cover "$<" "$@" $(COVERRES) $(COVERCUT)) (gimp-quit 0)' | cat $(LATEXFILES)/gimpFunctions.scm - | gimp -i -b -
 
 %.html %.css %.opf: %.tex
+	@$(call TEST_TEX, $<)
 	TEXINPUTS=".:$(LATEXFILES):" mk4ht htlatex $< "xhtml,fn-in,charset=utf-8" " -cunihtf -utf8"
 	rm -f $*.4ct $*.4tc $*.aux $*.dvi $*.idv $*.lg $*.log $*.tmp $*.xref
 ifdef FONT_SERIF
