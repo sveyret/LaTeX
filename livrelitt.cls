@@ -761,12 +761,11 @@
 \AtEndDocument{%
   % Terminer le livre
   \llt@end@part%
-  \clearpage%
-  \pagestyle{empty}%
 %
   % Dernières pages
   \ifcase\GenMode\relax%
     % Numérique
+    \llt@digital@pagebreak%
     \llt@sameauthor%
     \llt@digital@pagebreak%
     \llt@digital@nopar\HCode{<div class="fplegal">}\par\ShowPar%
@@ -778,6 +777,8 @@
     \llt@digital@pagebreak%
   \or%
     % Imprimerie
+    \clearpage%
+    \pagestyle{empty}%
     \llt@temp@count=\thepage%
     \divide\llt@temp@count by 4% Il faut un multiple de 4 pages
     \llt@temp@count=\numexpr\thepage-\llt@temp@count*4\relax%
