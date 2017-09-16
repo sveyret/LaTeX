@@ -147,8 +147,7 @@ Bien sûr, vous pouvez également appeler _make_ pour générer n'importe quel f
 ## À faire
 
 * Générer automatiquement le code barre pour la couverture.
-* Revoir la gestion des illustrations.
-* Ne pas enregistrer le fichier .sla s'il n'a pas été modifié.
+* Gérer les guillemets en les rendant actifs pour autoriser les espaces insécables.
 
 # Création d'un scénario (classe filmscenario)
 
