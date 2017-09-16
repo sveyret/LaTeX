@@ -29,6 +29,7 @@ Avec cette classe, vous pouvez, à partir d'un fichier .tex et un fichier Scribu
 * un fichier contenant une version numérique du livre (*.epub).
 
 En plus d'une installation complète de LaTeX (contenant pdflatex, mk4ht, htlatex et latexmk), l'utilisation de cette classe nécessite également :
+* perl ;
 * Scribus ;
 * gimp ;
 * pdftoppm ;
@@ -123,6 +124,15 @@ Un fichier _Makefile_ est fourni à titre de modèle pour votre projet de livre.
 * _LATEXFILES_ contient le chemin vers le répertoire contenant les fichiers de ce projet ;
 * _COVERRES_ doit contenir, en points par pouce, la résolution de l'image qui sera extraite de la couverture papier pour être insérée dans le livre numérique ;
 * _COVERCUT_ contient la taille, en millimètres, de la partie de couverture qui doit être coupée (fond perdu, traits de coupe, etc.)
+
+Il est également possible de spécifier des polices de caractères qui seront intégrées dans le livre électronique. Ces polices doivent être installées sur l'ordinateur servant à générer le livre.
+
+* _FONT_SERIF_ est la police de caractères utilisée par défaut ;
+* _FONT_CURSIVE_ est la police de caractères utilisée pour l'écriture cursive.
+
+Les valeurs fournies ici seront directement utilisées dans le fichier _.css_ généré. Il est donc également possible d'y indiquer une taille. Exemple :
+
+    FONT_CURSIVE=My Own Handwriting; font-size: 120%
 
 Lorsque le fichier _Makefile_ est prêt, vous pouvez utiliser, si l'outil _Make_ est installé sur votre poste (c'est le cas sur la plupart des distribution Linux) :
 * _make_ sans argument, qui exécutera par défaut la cible _all_ et générera la couverture et l'intérieur du livre papier, la version brouillon et la version numérique du livre ;

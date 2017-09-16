@@ -52,9 +52,15 @@ $(EBOOKIMAGEDIR)/%.jpg: %.jpg
 %.html %.css %.opf: %.tex
 	TEXINPUTS=".:$(LATEXFILES):" mk4ht htlatex $< "xhtml,fn-in,charset=utf-8" " -cunihtf -utf8"
 	rm -f $*.4ct $*.4tc $*.aux $*.dvi $*.idv $*.lg $*.log $*.tmp $*.xref
+ifdef FONT_SERIF
+	perl -i -pe 's/font-family:\s*serif;/font-family: $(FONT_SERIF);/g' $*.css
+endif
+ifdef FONT_CURSIVE
+	perl -i -pe 's/font-family:\s*cursive;/font-family: $(FONT_CURSIVE);/g' $*.css
+endif
 
 %.epub: %.html %.css %.opf %.cover.png $(EBOOKIMAGES)
-	ebook-convert $< $@ --embed-all-fonts --cover $*.cover.png --from-opf $*.opf
+	ebook-convert $< $@ --embed-all-fonts --subset-embedded-fonts --cover $*.cover.png --from-opf $*.opf
 
 clean:
 	rm -f *~

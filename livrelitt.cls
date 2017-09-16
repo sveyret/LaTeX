@@ -674,7 +674,8 @@
   \pagestyle{empty}%
   \ifcase\GenMode\relax%
     % Numérique
-    \Css{p.indent{text-indent: 1.5em;}}%i
+    \Css{body{font-family: serif;}}%
+    \Css{p.indent{text-indent: 1.5em;}}%
     \Css{.newpage{page-break-before: always;}}%
     \Css{.tpauthor{height: 30\%; text-align: center;}}%
     \Css{.tptitle{height: 50\%; text-align: center;}}%
