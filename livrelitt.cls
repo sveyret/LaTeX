@@ -234,7 +234,7 @@
   \def\llt@isbn@digital{#2}%
   \ifnum\GenMode=\GenModeNumerique\relax%
     \ifx\llt@isbn@digital\@empty\else%
-      \llt@write@meta{<dc:identifier opf:scheme="ISBN">#1</dc:identifier>}
+      \llt@write@meta{<dc:identifier opf:scheme="ISBN">#2</dc:identifier>}
     \fi%
   \fi%
 }
