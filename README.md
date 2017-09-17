@@ -39,7 +39,7 @@ En plus d'une installation complète de LaTeX (contenant pdflatex, mk4ht, htlate
 
 Le fichier .tex est attendu en UTF-8 et rédigé directement en Français, y compris pour les accents ou les caractères particuliers (guillemets français, par exemple). À cause d'une limitation dans les paquets utilisés, les guillemets français ne doivent toutefois pas être suivis ou précédés d'espaces insécables, mais d'espaces classiques. Il est bien entendu également possible d'utiliser les commandes particulières du LaTeX (tel que \og et \fg si votre clavier ne vous permet pas de faire les guillemets français).
 
-Afin de détecter quelques fautes qui ne sont normalement pas visibles, la génération n'aura pas lieue si, dans le document .tex :
+Afin de détecter quelques fautes qui ne sont normalement pas visibles, la génération n'aura pas lieue si, dans le corps du document .tex (après le préambule) :
 * des guillemets ouvrants sont suivis d'une espace insécable ; pour passer outre le contrôle, utiliser «~ ;
 * des guillemets fermants sont précédés d'une espace insécable ; pour passer outre le contrôle, utiliser ~» ;
 * des tirets quadratins en début de ligne (donc, en principe, lors d'une ouverture de dialogue) sont suivis d'une espace simple ; pour passer outre ce contrôle, utiliser —\space.

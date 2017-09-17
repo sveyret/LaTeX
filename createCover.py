@@ -42,7 +42,6 @@ resume = resume.replace(" \\par ", "\r")
 dirtyDoc = False
 
 def changeText(obj, text):
-	text = text.replace("~", "\xC2\xA0")
 	text = text.rstrip("\r\n")
 	if text == "":
 		text = " "
