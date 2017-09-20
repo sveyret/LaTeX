@@ -77,7 +77,7 @@ ifdef FONT_CURSIVE
 endif
 
 %.epub: %.html %.css %.opf %.cover.png $(EBOOKIMAGES)
-	ebook-convert $< $@ --embed-all-fonts --subset-embedded-fonts --start-reading-at '//h:h2[1]' --cover $*.cover.png --from-opf $*.opf
+	ebook-convert $< $@ --embed-all-fonts --subset-embedded-fonts --start-reading-at '//h:h2[1]' --level1-toc '//h:h2' --cover $*.cover.png --from-opf $*.opf
 
 clean:
 	rm -f *~
