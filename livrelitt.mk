@@ -3,7 +3,7 @@ DRAFT=$(BASENAME).draft.pdf
 EBOOK=$(BASENAME).epub
 PRINTIMAGEDIR=pictures
 EBOOKIMAGEDIR=images
-PNGS=$(wildcard *.png)
+PNGS=$(filter-out $(BASENAME).cover.png,$(wildcard *.png))
 JPGS=$(wildcard *.jpg)
 PRINTIMAGES=$(addprefix $(PRINTIMAGEDIR)/, $(PNGS)) $(addprefix $(PRINTIMAGEDIR)/,  $(JPGS))
 EBOOKIMAGES=$(addprefix $(EBOOKIMAGEDIR)/, $(PNGS)) $(addprefix $(EBOOKIMAGEDIR)/,  $(JPGS))
@@ -80,13 +80,15 @@ endif
 	ebook-convert $< $@ --embed-all-fonts --subset-embedded-fonts --start-reading-at '//h:h2[1]' --level1-toc '//h:h2' --cover $*.cover.png --from-opf $*.opf
 
 clean:
-	rm -f *~
-	rm -f *.data *.html *.css *.opf
+	rm -f $(BASENAME)~
+	rm -f $(BASENAME).data $(BASENAME).html $(BASENAME).css $(BASENAME).opf $(BASENAME).cover.png
 	rm -rf $(PRINTIMAGEDIR) $(EBOOKIMAGEDIR)
 
 mrproper: clean
 	rm -f $(DRAFT) $(PRINT) $(EBOOK)
 
 .SUFFIXES:
+
+.SECONDARY: $(BASENAME).data $(BASENAME).html $(BASENAME).css $(BASENAME).opf $(BASENAME).cover.png
 
 .PHONY : all draft print ebook clean mrproper
