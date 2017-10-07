@@ -128,7 +128,7 @@ Votre document doit obligatoirement contenir des champs ayant les noms suivants.
 
 Un fichier _Makefile_ est fourni à titre de modèle pour votre projet de livre. Il se trouve, avec un exemple, dans le répertoire _modele/livrelitt_. Ce fichier doit être copié dans le répertoire contenant les sources du projet, puis adapté en modifiant les variables qui se trouvent au début du fichier :
 * _BASENAME_ doit contenir la « racine » du nom du projet ; c'est le nom, hors extension, de tous les fichiers concernant le projet (fichier .tex et .sla, ainsi que fichiers générés) ;
-* _LATEXFILES_ contient le chemin vers le répertoire contenant les fichiers de ce projet ;
+* _LATEXFILES_ contient le chemin vers le répertoire contenant les fichiers de _livrelitt_ ;
 * _COVERRES_ doit contenir, en points par pouce, la résolution de l'image qui sera extraite de la couverture papier pour être insérée dans le livre numérique ;
 * _COVERCUT_ contient la taille, en millimètres, de la partie de couverture qui doit être coupée (fond perdu, traits de coupe, etc.)
 
