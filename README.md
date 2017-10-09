@@ -153,6 +153,7 @@ Bien sûr, vous pouvez également appeler _make_ pour générer n'importe quel f
 
 ## À faire
 
+* Simplifier la gestion des dialogues.
 * Générer automatiquement le code barre pour la couverture.
 * Gérer les guillemets en les rendant actifs pour autoriser les espaces insécables.
 
