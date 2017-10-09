@@ -61,7 +61,6 @@
 
 \DeclareOption{petitlivre}{\llt@smallbooktrue}
 \DeclareOption{lettrine}{\llt@autodropcaptrue}
-\DeclareOption{@10pt}{\PassOptionsToClass{10pt}{book}}
 \DeclareOption{@12pt}{\PassOptionsToClass{12pt}{book}}
 \DeclareOption{@a4paper}{\PassOptionsToClass{a4paper}{book}}
 \DeclareOption{@a5paper}{\PassOptionsToClass{a5paper}{book}}
@@ -71,11 +70,7 @@
 \ifnum\GenMode=\GenModeBrouillon\relax
   \ExecuteOptions{@12pt,@a4paper,@openany}
 \else
-  \ifllt@smallbook
-    \ExecuteOptions{@12pt,@a5paper}
-  \else
-    \ExecuteOptions{@10pt,@a5paper}
-  \fi
+  \ExecuteOptions{@12pt,@a5paper}
 \fi
 
 \ProcessOptions\relax
@@ -279,12 +274,12 @@
   \setlength{\llt@sidemargin}{0mm}
 \or
   % Imprimerie
-  \setlength{\llt@topmargin}{18mm}
+  \setlength{\llt@topmargin}{22mm}
   \setlength{\llt@topmarginsep}{10mm}
-  \setlength{\llt@botmargin}{22mm}
+  \setlength{\llt@botmargin}{28mm}
   \setlength{\llt@botmarginsep}{10mm}
-  \ifllt@smallbook\setlength{\llt@bindingmargin}{2mm}\else\setlength{\llt@bindingmargin}{1mm}\fi
-  \setlength{\llt@sidemargin}{25mm}
+  \ifllt@smallbook\setlength{\llt@bindingmargin}{4mm}\else\setlength{\llt@bindingmargin}{2mm}\fi
+  \setlength{\llt@sidemargin}{24mm}
 \or
   % Brouillon
   \setlength{\llt@topmargin}{15mm}
