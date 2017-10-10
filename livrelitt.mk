@@ -18,8 +18,8 @@ echo \
 && $(call TEST_SEQUENCE,«\xC2\xA0,$(1)) \
 && echo " * Guillemets fermants précédés d'une espace insécable (utiliser ~» pour passer outre) :" \
 && $(call TEST_SEQUENCE,\xC2\xA0»,$(1)) \
-&& echo " * Tirets quadratins suivis d'une espace simple (utiliser —\space pour passer outre) :" \
-&& $(call TEST_SEQUENCE,^—\s,$(1))
+&& echo " * Tirets quadratins en début de ligne (utiliser --- pour passer outre) :" \
+&& $(call TEST_SEQUENCE,^—,$(1))
 endef
 
 all: draft print ebook

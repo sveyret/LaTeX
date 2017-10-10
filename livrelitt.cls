@@ -584,7 +584,7 @@
 }
 
 %%%%%%%%%%%%
-% Définitions spécifiques
+% Définitions diverses
 
 \ifcase\GenMode\relax
   % Numérique
@@ -603,6 +603,7 @@
   \let\cleardoublepage=\clearpage % On ne saute pas 2 pages en mode brouillon
   \def\tableofcontents{\llt@sav@clearpage\llt@sav@tableofcontents}
 \fi
+\def\—{—\enspace{}\ignorespaces} % Début d'un dialogue
 
 %%%%%%%%%%%%
 % Invalidation des commandes

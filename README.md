@@ -42,7 +42,7 @@ Le fichier .tex est attendu en UTF-8 et rédigé directement en Français, y com
 Afin de détecter quelques fautes qui ne sont normalement pas visibles, la génération n'aura pas lieue si, dans le corps du document .tex (après le préambule) :
 * des guillemets ouvrants sont suivis d'une espace insécable ; pour passer outre le contrôle, utiliser «~ ;
 * des guillemets fermants sont précédés d'une espace insécable ; pour passer outre le contrôle, utiliser ~» ;
-* des tirets quadratins en début de ligne (donc, en principe, lors d'une ouverture de dialogue) sont suivis d'une espace simple ; pour passer outre ce contrôle, utiliser —\space.
+* des tirets quadratins en début de ligne (donc, en principe, lors d'une ouverture de dialogue) ; pour passer outre ce contrôle, utiliser ---.
 
 ### Paramètres de la classe
 
@@ -69,6 +69,7 @@ Différentes commandes, utilisables uniquement dans le préambule du document, p
 ### Mise en forme
 
 Cette classe hérite de la classe standard « book ». Vous pouvez donc utiliser toutes les commandes de mise en forme de cette classe. Vous pouvez également utiliser les commandes spécifiques :
+* \— pour démarrer un dialogue (c'est un tiret quadratin, et non un signe moins) ;
 * \barre{_texte_} pour afficher un texte barré ;
 * \etranger{_texte_} pour du texte en langue étrangère ;
 * \separateurpar qui ajoute un [astérisme](https://fr.wikipedia.org/wiki/Ast%C3%A9risme_(typographie)) afin de séparer deux paragraphes logiques ;
@@ -153,7 +154,6 @@ Bien sûr, vous pouvez également appeler _make_ pour générer n'importe quel f
 
 ## À faire
 
-* Simplifier la gestion des dialogues.
 * Générer automatiquement le code barre pour la couverture.
 * Gérer les guillemets en les rendant actifs pour autoriser les espaces insécables.
 
