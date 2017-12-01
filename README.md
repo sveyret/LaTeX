@@ -158,7 +158,7 @@ Bien sûr, vous pouvez également appeler _make_ pour générer n'importe quel f
 * Générer automatiquement le code barre pour la couverture.
 * Gérer les guillemets en les rendant actifs pour autoriser les espaces insécables.
 
-# Création d'un scénario (classe filmscenario)
+# Création d'un scénario en langue française (classe frscenario)
 
 ## À faire
 
