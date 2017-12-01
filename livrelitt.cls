@@ -293,27 +293,27 @@
 \setlength{\pdfpageheight}{\paperheight}
 \setlength{\pdfpagewidth}{\paperwidth}
 
-\setlength{\topmargin}{-1in}
+\setlength{\hoffset}{-1in}
+\setlength{\voffset}{-1in}
+
 \setlength{\textheight}{\paperheight}
 \addtolength{\textheight}{-\llt@topmargin}
 \addtolength{\textheight}{-\llt@topmarginsep}
 \addtolength{\textheight}{-\llt@botmargin}
 \addtolength{\textheight}{-\llt@botmarginsep}
-\addtolength{\topmargin}{\llt@topmargin}
+\setlength{\topmargin}{\llt@topmargin}
 \setlength{\headheight}{\baselineskip}
 \addtolength{\topmargin}{-\headheight}
 \setlength{\headsep}{\llt@topmarginsep}
 \setlength{\footskip}{\llt@botmarginsep}
 \addtolength{\footskip}{\baselineskip}
 
-\setlength{\oddsidemargin}{-1in}
-\setlength{\evensidemargin}{-1in}
 \setlength{\textwidth}{\paperwidth}
 \addtolength{\textwidth}{-2\llt@sidemargin}
 \addtolength{\textwidth}{-\llt@bindingmargin}
-\addtolength{\oddsidemargin}{\llt@sidemargin}
+\setlength{\oddsidemargin}{\llt@sidemargin}
 \addtolength{\oddsidemargin}{\llt@bindingmargin}
-\addtolength{\evensidemargin}{\llt@sidemargin}
+\setlength{\evensidemargin}{\llt@sidemargin}
 
 \ifnum\GenMode=\GenModeBrouillon\relax
   \renewcommand{\baselinestretch}{1.5}
