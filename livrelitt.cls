@@ -546,7 +546,7 @@
     \def\@oddhead{\textit{\@title}\hfill Version du \today}%
     \def\@evenfoot{\hfill\thepage\hfill}%
     \def\@oddfoot{\hfill\thepage\hfill}%
-\fi
+  \fi
 }
 
 % Commandes
