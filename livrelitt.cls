@@ -604,6 +604,7 @@
   \def\tableofcontents{\llt@sav@clearpage\llt@sav@tableofcontents}
 \fi
 \def\—{—\enspace{}\ignorespaces} % Début d'un dialogue
+\def\dial{—\enspace{}\ignorespaces}
 
 %%%%%%%%%%%%
 % Invalidation des commandes

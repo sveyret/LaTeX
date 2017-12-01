@@ -70,6 +70,7 @@ Différentes commandes, utilisables uniquement dans le préambule du document, p
 
 Cette classe hérite de la classe standard « book ». Vous pouvez donc utiliser toutes les commandes de mise en forme de cette classe. Vous pouvez également utiliser les commandes spécifiques :
 * \— pour démarrer un dialogue (c'est un tiret quadratin, et non un signe moins) ;
+* \dial pour démarrer un dialogue (pour le cas où votre clavier ne permet pas de faire des —) ;
 * \barre{_texte_} pour afficher un texte barré ;
 * \etranger{_texte_} pour du texte en langue étrangère ;
 * \separateurpar qui ajoute un [astérisme](https://fr.wikipedia.org/wiki/Ast%C3%A9risme_(typographie)) afin de séparer deux paragraphes logiques ;
