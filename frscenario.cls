@@ -166,7 +166,7 @@
 \newcommand*{\SceneIntExt}[2]{\fsc@scene{INT./EXT}{#2}{#1}}
 \newcommand*{\SceneExtInt}[2]{\fsc@scene{EXT./INT}{#2}{#1}}
 \newcommand*{\Generique}{\fsc@scene{GÉNÉRIQUE}{}{}}
-\newcommand*{\transition}[1]{\hspace*{\stretch{1}}\mbox{\MakeUppercase{#1}}\par}
+\newcommand*{\transition}[1]{\hfill\mbox{\MakeUppercase{#1}}\par}
 
 %%%%%%%%%%%%
 % Dialogues et didascalies
@@ -178,11 +178,11 @@
     \par\hspace*{1.5em}(\emph{##1})\par%
   }
   \newcommand*{\coupe}{%
-    \hspace*{\stretch{1}}\did{…}%
+    \hfill\did{…}%
     \end{fsc@dialogue}%
     \newpage%
     \begin{fsc@dialogue}{#1}%
-    \didasc{SUITE}%
+    \did{SUITE}%
   }
 %
   \begin{minipage}{\textwidth}%
