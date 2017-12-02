@@ -126,11 +126,11 @@
 % En-têtes et pieds de page
 
 \def\ps@open{%
-  \def\@oddhead{\hfill\@author\hfill}%
+  \def\@oddhead{\makebox[0.3\textwidth][l]{\@author}\hfill\makebox[0.3\textwidth][r]{\topmark}}%
   \def\@oddfoot{\hfill-- \thepage --\hfill}%
 }
 \def\ps@plain{%
-  \def\@oddhead{\emph{\@author} — \@title\hfill\topmark}%
+  \def\@oddhead{\makebox[0.3\textwidth][l]{\@author}\hfill\@title\hfill\makebox[0.3\textwidth][r]{\topmark}}%
   \def\@oddfoot{\hfill-- \thepage --\hfill}%
 }
 \mark{Ouverture}
