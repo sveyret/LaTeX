@@ -19,9 +19,9 @@ En plus d'une installation complète de LaTeX (contenant pdflatex, mk4ht, htlate
 
 # Rédaction du livre
 
-Le fichier .tex est attendu en UTF-8 et rédigé directement en Français, y compris pour les accents ou les caractères particuliers (guillemets français, par exemple). À cause d'une limitation dans les paquets utilisés, les guillemets français ne doivent toutefois pas être suivis ou précédés d'espaces insécables, mais d'espaces classiques. Il est bien entendu également possible d'utiliser les commandes particulières du LaTeX (tel que \og et \fg si votre clavier ne vous permet pas de faire les guillemets français).
+Le fichier .tex est attendu en UTF-8 et rédigé directement en français, y compris pour les accents ou les caractères particuliers (guillemets français, par exemple). À cause d'une limitation dans les paquets utilisés, les guillemets français ne doivent toutefois pas être suivis ou précédés d'espaces insécables, mais d'espaces classiques. Il est bien entendu également possible d'utiliser les commandes particulières du LaTeX (tel que \og et \fg si votre clavier ne vous permet pas de faire les guillemets français).
 
-Afin de détecter quelques fautes qui ne sont normalement pas visibles, la génération n'aura pas lieue si, dans le corps du document .tex (après le préambule) :
+Afin de détecter quelques fautes qui ne sont normalement pas visibles, la génération n'aura pas lieu si, dans le corps du document .tex (après le préambule) :
 * des guillemets ouvrants sont suivis d'une espace insécable ; pour passer outre le contrôle, utiliser «~ ;
 * des guillemets fermants sont précédés d'une espace insécable ; pour passer outre le contrôle, utiliser ~» ;
 * des tirets quadratins en début de ligne (donc, en principe, lors d'une ouverture de dialogue) ; pour passer outre ce contrôle, utiliser ---.
@@ -40,7 +40,7 @@ Différentes commandes, utilisables uniquement dans le préambule du document, p
 * \Contributeur{[_code rôle_/_Rôle_] _Nom_, _Prénom_ \et …} peut être utilisé pour indiquer un ou plusieurs contributeurs supplémentaires, tel qu'un illustrateur, un photographe, etc. Le _Rôle_ est le nom du rôle en clair (par exemple _Illustratrice_ ou _Illustrations_) tandis que _code rôle_ est l'un des codes spécifiés par la [norme OPF](http://www.idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.2.6) (par exemple _ill_). Les rôle et code rôle sont encadrés de crochets et séparés par une barre oblique. Une espace doit séparer le crochet final du nom de l'auteur. Excepté pour le rôle, la syntaxe est la même que pour l'auteur. L'utilisation de cette commande est facultative.
 * \Resume{_Résumé_} permet de rédiger le résumé (quatrième de couverture) du livre. Ce résumé apparaitra sur la couverture et sur la version brouillon du livre. Le résumé doit uniquement contenir du texte et pas de commande LaTeX. Il peut toutefois faire plusieurs paragraphes. Si le résumé n'est pas spécifié, il sera identique au titre.
 * \Categorie{_Catégorie_} fixe la catégorie du livre (Policier, Science fiction, ou tout simplement Roman). Sans cette commande, la catégorie indiquée est « Roman ».
-* \Editeur{_Éditeur_} vous permet d'indiquer l'éditeur du  livre. Si vous n'utilisez pas cette commande, la valeur sera « Auteur-Éditeur ».
+* \Editeur{_Éditeur_} vous permet d'indiquer l'éditeur du livre. Si vous n'utilisez pas cette commande, la valeur sera « Auteur-Éditeur ».
 * \DroitsDAuteur{_Licence_} peut être utilisée pour donner la licence du livre. C'est une commande facultative mais recommandée. Si elle n'est pas spécifiée, la mention « © » suivie de la date sera insérée.
 * \Isbn{_Version papier_}{_Version numérique_} est une commande pour indiquer le numéro ISBN du livre. En principe, un même livre sous deux formats différents devrait avoir deux numéros d'ISBN différents. Le premier numéro est utilisé pour la version papier du livre, tandis que le deuxième est utilisé dans la version numérique. La version brouillon n'utilise pas de numéro ISBN. Chacun des numéros est facultatif, la commande elle-même n'est pas nécessaire.
 * \InfoImpression{_Détails_} peut être utilisée pour ajouter des détails sur l'imprimeur (par exemple, nom de l'imprimeur, date de l'impression). La commande est facultative.
@@ -60,7 +60,7 @@ Cette classe hérite de la classe standard « book ». Vous pouvez donc utilis
 
 Des environnements supplémentaires peuvent également être utilisés :
 * \begin{dedicace}…\end{dedicace} permet de délimiter la dédicace du livre ; cette dédicace s'affiche sur une page vide, les paragraphes alignés à droite ;
-* \begin{narrateur}…\end{narrateur} permet d'encadrer une zone dans lequel le narrateur n'est pas l'un des personnage du livre ; ces zones ont une mise en forme différente ;
+* \begin{narrateur}…\end{narrateur} permet d'encadrer une zone dans lequel le narrateur n'est pas l'un des personnages du livre ; ces zones ont une mise en forme différente ;
 * \begin{manuscrit}…\end{manuscrit} peut être utilisée pour identifier une zone écrite avec une police de caractères imitant l'écriture manuscrite.
 
 Par défaut, l'en-tête du livre contiendra le nom de l'auteur sur les pages de gauche et le titre du livre sur les pages de droite. Les pieds de page contiennent le numéro de la page. Notez que, conformément aux normes esthétiques dans l'industrie du livre, en-têtes et pieds de page ne s'affichent qu'au « milieu » d'un chapitre en cours.
@@ -69,7 +69,7 @@ Les valeurs par défaut peuvent être modifiées par les commandes, utilisables 
 * \Entete[_position_]{_valeur_} pour positionner les en-têtes ;
 * \PiedPage[_position_]{_valeur_} pour indiquer les pieds de page.
 
-Ces commandes acceptent en premier paramètre, optionnel, entre crochets, un lettre pour indiquer si l'on souhaite modifier les pages de droite (avec un D) ou les pages de gauche (avec un G). Si cette valeur n'est pas indiquée, ou est différente de D ou G (en lettres capitales), les deux côtés sont modifiés. Les définitions suivantes peuvent être utiles pour ces commandes :
+Ces commandes acceptent en premier paramètre, optionnel, entre crochets, une lettre pour indiquer si l'on souhaite modifier les pages de droite (avec un D) ou les pages de gauche (avec un G). Si cette valeur n'est pas indiquée, ou est différente de D ou G (en lettres capitales), les deux côtés sont modifiés. Les définitions suivantes peuvent être utiles pour ces commandes :
 * \LeTitre, qui sera remplacé par le titre du livre ;
 * \LAuteur, qui sera remplacé par l'auteur du livre ;
 * \LaPartie{_marque_} pour extraire le nom de la partie en cours ;
