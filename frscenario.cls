@@ -155,9 +155,9 @@
   \vspace{\parskip}%
   \begin{bfseries}%
     \hspace{-3em}\makebox[3em][l]{\thefsc@scenecount}%
-    \MakeUppercase{#1.~#2\hspace{2em plus 0em minus 0em}#3}\hfill%
+    \MakeUppercase{#1.~#2\hspace{2em plus 0em minus 0em}#3}\hfill\thefsc@scenecount%
   \end{bfseries}%
-  \nopagebreak%
+  \nopagebreak\par%
 }
 
 % Types de scènes
