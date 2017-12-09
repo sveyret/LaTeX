@@ -125,7 +125,7 @@ Les valeurs fournies ici seront directement utilisées dans le fichier _.css_ g�
 
     FONT_CURSIVE=My Own Handwriting; font-size: 120%
 
-Lorsque le fichier _Makefile_ est prêt, vous pouvez utiliser, si l'outil _Make_ est installé sur votre poste (c'est le cas sur la plupart des distribution Linux) :
+Lorsque le fichier _Makefile_ est prêt, vous pouvez utiliser, si l'outil _Make_ est installé sur votre poste (c'est le cas sur la plupart des distributions Linux) :
 * _make_ sans argument, qui exécutera par défaut la cible _all_ et générera la couverture et l'intérieur du livre papier, la version brouillon et la version numérique du livre ;
 * _make draft_ pour générer la version brouillon (mode révision) du livre ;
 * _make print_ pour générer la couverture et l'intérieur du livre papier ;

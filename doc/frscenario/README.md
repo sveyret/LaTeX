@@ -61,6 +61,18 @@ Lorsque vous êtes à l'intérieur d'un dialogue, vous pouvez utiliser :
 * \did{_description_} pour ajouter une didascalie ;
 * \coupe pour couper le dialogue et le poursuivre sur la page suivante (l'utilisation de cette option n'est pas recommandée).
 
+# Génération
+
+Un fichier _Makefile_ est fourni à titre de modèle pour votre projet de scénario. Il se trouve, avec un exemple, dans le répertoire [exemple](exemple). Ce fichier doit être copié dans le répertoire contenant les sources du projet, puis adapté en modifiant les variables qui se trouvent au début du fichier :
+* _BASENAME_ doit contenir la « racine » du nom du projet ; c'est le nom, hors extension, de tous les fichiers concernant le projet (fichier .tex ainsi que fichiers générés) ;
+* _LATEXFILES_ contient le chemin vers le répertoire contenant les fichiers de _frscenario_.
+
+Lorsque le fichier _Makefile_ est prêt, vous pouvez utiliser, si l'outil _Make_ est installé sur votre poste (c'est le cas sur la plupart des distributions Linux) :
+* _make_ sans argument, qui exécutera par défaut la cible _print_ et générera une version imprimable du scénario ;
+* _make web_ pour générer une version électronique du scénario (cela peut être utile pour publier le scénario sur un site Internet ou pour le charger dans un autre éditeur) ;
+* _make clean_ pour supprimer les fichiers intermédiaires ;
+* _make mrproper_ pour faire le ménage et supprimer tous les fichiers générés.
+
 # À faire
 
 - [ ] Donner la possibilité d'utiliser et modifier les numéros de scène (pour créer une « 12A » par exemple).

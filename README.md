@@ -2,9 +2,9 @@ Classes et outils pour créer des œuvres littéraires avec LaTeX.
 
 # Language/Langue
 
-These classes are intended to be used to create work of French literature. Therefore, all documents here are in French. If you need some translation, feel free to ask me directly.
+:us: :gb: These classes are intended to be used to create work of French literature. Therefore, all documents here are in French. If you need some translation, feel free to ask me directly.
 
-Ces classes ont pour but de créer des œuvres littéraires en français. Aussi, tous les documents ici sont en français. N'hésitez pas à me demander si vous avez besoin d'une traduction.
+:fr: Ces classes ont pour but de créer des œuvres littéraires en français. Aussi, tous les documents ici sont en français. N'hésitez pas à me demander si vous avez besoin d'une traduction.
 
 # Licence
 
