@@ -8,7 +8,7 @@ try:
 	from scribus import *
     
 except ImportError:
-	print 'Ce script doit être exécuté depuis Scribus.'
+	print("Ce script doit être exécuté depuis Scribus.")
 	sys.exit(1)
 
 syntaxe = "scribus -g -ns <inputfile.sla> -py " + sys.argv[0] + " <sortie.pdf> <fichier.data>"
